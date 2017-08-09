@@ -1,4 +1,4 @@
-# CS 546 - Web Programming Project
+# Saloon Portal
 
 One Paragraph of project description goes here
 
@@ -72,7 +72,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Aakriti Srivastava** - *Initial work* - [harshjk](https://github.com/aakriti7)
+* **Aakriti Srivastava** - *Initial work* - [aakriti7](https://github.com/aakriti7)
 * **Harsh Kevadia** - *Initial work* - [harshjk](https://github.com/harshjk)
 * **Jay Dangi** - *Initial work* - [harshjk](https://github.com/harshjk)
 * **Renuka Dakshinamurthy** - *Initial work* - [harshjk](https://github.com/harshjk)
