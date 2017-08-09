@@ -72,8 +72,12 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
+* **Aakriti Srivastava** - *Initial work* - [harshjk](https://github.com/aakriti7)
 * **Harsh Kevadia** - *Initial work* - [harshjk](https://github.com/harshjk)
+* **Jay Dangi** - *Initial work* - [harshjk](https://github.com/harshjk)
+* **Renuka Dakshinamurthy** - *Initial work* - [harshjk](https://github.com/harshjk)
 * **Ruchika Sutariya** - *Initial work* - [rsutariy](https://github.com/rsutariy)
+
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
