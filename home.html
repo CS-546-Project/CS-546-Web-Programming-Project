@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="This is the home page for Salon Portal">
+    <meta name="author" content="">
+
+    <title>Salon Portal</title>
+    <link rel = "stylesheet"   type = "text/css"   href = "public/css/home.css" />        
+</head>
+
+<body>
+	<header>
+        <div id="salon_bar" style="float:left; width:65%; text-align: center;">
+        <nav class="navbar navbar-inverse">
+        <div id="tabs" class="container-fluid">
+            <ol class="nav navbar-nav">
+                <li class="active"  style="display:inline;"><a href="#">Home</a></li>
+                <li  style="display:inline;"><a href="#">About</a></li>
+                <li  style="display:inline;"><a href="#">Contact Us</a></li>
+                <li  style="display:inline;"><a href="#">Terms and Conditions</a></li>
+            </ol>
+        </div>
+        </nav>
+        <br><br><br>
+    </div>       
+    </header>
+    <div id="container_demo" style="float: right;">
+         <img src="logo.png" alt="logo">
+    </div>
+    <br><br><br><br><br>
+    <a class="hiddenanchor" id="toregister"></a>
+    <a class="hiddenanchor" id="tologin"></a>
+    <div id="wrapper">
+        <div id="login" class="animate form" style="text-align: center; float:left;">
+            <form  class="login" action="" autocomplete="on"> 
+                    <h2>Log in</h2> 
+                    <input type="radio" name="login" value="Customer" checked> Customer
+                    <input type="radio" name="login" value="Owner"> Salon Owner <br>
+                    <div id="boxes">
+                    <p> 
+                        <label for="username" class="uname" data-icon="u" > Username </label>
+                        <input id="username" name="username" required="required" type="text" placeholder="myusername or mymail@mail.com"/>
+                    </p>
+                    <p> 
+                        <label for="password" class="youpasswd" data-icon="p"> Password </label>
+                        <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" /> 
+                    </p>
+                    </div>
+                    <p class="keeplogin"> 
+                        <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
+                        <label for="loginkeeping">Keep me logged in</label>
+                        <input type="submit" value="Login" /> 
+                    </p>
+                    <p class="change_link">
+                        Not a member yet ?
+                        <a href="#toregister" class="to_register">Join us</a>
+                    </p>
+            </form>
+        </div>
+    </div>
+    <br><br><br><br><br>
+    <div id="benefits">
+        <i>
+       <h2>Find the best Salon for you!</h2>
+       <ul>
+           <li>Find Salons by area</li>
+            <br>
+           <li>Find services and charges</li>
+           <br>
+           <li>Read and write reviews</li>
+        </ul>
+        </i>
+    </div>
+</body>
+</html>
