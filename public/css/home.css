@@ -17,7 +17,8 @@ ul {
 }
 
 #tabs li {
-    float: left;
+    float:right;
+    width:15%;
     border-spacing: 10px;
     padding: 10px 1% 10px 1%;
 }
@@ -31,10 +32,8 @@ ul {
 
 #login{
     width: 30%;	
-    padding: 10px 3% 20px 3%;
-    margin: 30px 30px 30px 30px;
-    margin-top: 30px;
-    margin-left: 50px;
+    margin:auto;
+    text-align: center;
 	background: rgb(247, 247, 247);
 	border: 1px solid rgba(147, 184, 189,0.8);
 	-webkit-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
@@ -44,6 +43,7 @@ ul {
 	-moz-border-radius: 5px;
 		 border-radius: 5px;
 }
+
 #signin{
     width: 30%;	
     padding: 10px 3% 20px 3%;
@@ -88,11 +88,6 @@ li a:hover {
       border: none;
     }
 
-.container {
-  width: 100%;
-  height: 100%;
-}
-
 h1 {
  color: whitesmoke;
  text-align: center;
@@ -100,6 +95,6 @@ h1 {
 }
 
 #salon_logo {
-    float:right;
+    float:left;
     width:50%;
 }
