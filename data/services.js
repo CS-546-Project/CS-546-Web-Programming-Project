@@ -3,11 +3,6 @@
  *  Created On : Sat Aug 26 2017
  *  File : services.js
  *******************************************/
-/******************************************
- *  Author : Harsh Jagdishbhai Kevadia   
- *  Created On : Sat Aug 26 2017
- *  File : services.js
- *******************************************/
 const mongoCollections = require("../config/mongoCollections");
 const services = mongoCollections.services;
 const uuid = require('uuid/v4');
@@ -52,6 +47,9 @@ let exportedMethods = {
     updateServiceInfo(id, updatedServiceInfo) {
         return this.getServicesById(id).then((currentServiceInfo) => {
             let updatedInfo = {};
+            if ('vendorId' in updatedServiceInfo) {
+                updatedInfo.vendorId = updatedServiceInfo.vendorId;
+            }
             if ('serviceName' in updatedServiceInfo) {
                 updatedInfo.serviceName = updatedServiceInfo.serviceName;
             }
@@ -75,6 +73,25 @@ let exportedMethods = {
 }
 module.exports = exportedMethods;
 
-exportedMethods.addService("0b8bbd98-3981-47fa-bd2b-2b57f29054cb", "servicename", "description","cost").then((data) => {
+/*exportedMethods.addService("0b8bbd98-3981-47fa-bd2b-2b57f29054cb", "servicename", "description","cost").then((data) => {
     console.log(data);
-}); 
+});
+
+/*exportedMethods.removeService('9a3b26bc-8a9f-4d26-bb71-952fef65350d').then(() => {
+    console.log("Removed");
+}); */
+
+/*exportedMethods.getServicesById('9a3b26bc-8a9f-4d26-bb71-952fef65350d').then((data) => {
+    console.log(data);
+}); */
+
+/*let data = {
+    vendorId: "0b8bbd98-3981-47fa-bd2b-2b57f29054cb",
+    serviceName: "service1",
+    description: "description1",
+    cost: "50"
+   
+};
+exportedMethods.updateServiceInfo('bf291185-7585-4607-8030-c7672ab85a63', data).then((data) => {
+    console.log(data);
+}) */
