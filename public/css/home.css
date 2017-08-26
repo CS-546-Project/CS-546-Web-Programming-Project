@@ -183,7 +183,48 @@ p{
     border: 1px solid #dbdbdb;
 }
 
-li a {
+#results li a{
+    box-sizing: border-box;
+    width: auto;
+    height: auto;
+    font-size: 20px;
+    -webkit-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+    -moz-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+         box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+ -webkit-box-shadow: 5px;
+ -moz-border-radius: 5px;
+      border-radius: 5px;
+    text-align: left;
+    display: block;
+    color:wheat;
+
+
+}
+
+#results{
+	border: 1px solid rgba(147, 184, 189,0.8);
+	-webkit-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+	   -moz-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+	        box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+	-webkit-box-shadow: 5px;
+	-moz-border-radius: 5px;
+         border-radius: 5px;
+        padding: 20px 20px 20px 20px;
+}
+
+#results h3{
+    color: whitesmoke;
+    text-align: center;
+    font-size: 30px;
+}
+
+#results li ul{
+    text-align: right;
+    color:black;
+    box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.4);
+}
+
+#tabs li a {
     display: block;
     color:darkmagenta;
     background-color: rgb(247, 247, 247);
@@ -194,7 +235,7 @@ li a {
 }
 
 /* Change the link color to #111 (black) on hover */
-li a:hover {
+#tabs li a:hover {
     background-color:palevioletred;
 }
 
@@ -216,4 +257,15 @@ h1 {
 #hints{
     margin-right: 20 px;
     display: inline;
+}
+
+footer{
+    margin: 20px;
+    padding-top: 40px;
+    text-align: left;
+    color: palevioletred;
+}
+
+footer a{
+    text-align: right;
 }
