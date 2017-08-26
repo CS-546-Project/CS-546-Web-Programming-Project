@@ -25,6 +25,6 @@ let getCollectionFn = (collection) => {
 module.exports = {
     vendors: getCollectionFn("vendors"),
     users: getCollectionFn("users"),
-    hairCutter: getCollectionFn("hairCutters"),
+    hairCutters: getCollectionFn("hairCutters"),
     services: getCollectionFn("services")
 };
