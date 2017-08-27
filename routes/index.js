@@ -5,7 +5,7 @@ const servicesRoutes = require("./services");
 
 const constructorMethod = (app) => {
     app.use("/", usersRoutes);
-    app.use("/vendor", vendorsRoutes);
+    app.use("/vendors", vendorsRoutes);
     app.use("/hairCutters", hairCuttersRoutes);
     app.use("/services", servicesRoutes);
     

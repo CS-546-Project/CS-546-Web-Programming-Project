@@ -5,7 +5,7 @@ const serviceData = data.services;
 
 router.get("/:id", (req, res) => {
     serviceData.getServicesById(req.params.id).then((service) => {
-        res.json(service);
+        res.render("pages/services",service);
     }).catch(() => {
         res.status(404).json({ error: "service not found" });
     });

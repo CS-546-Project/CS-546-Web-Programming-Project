@@ -57,9 +57,11 @@ router.get("/signup", (req, res) => {
     res.render("pages/CustSignUp", {});
 });
 
+
+
 router.get("/:id", (req, res) => {
     usersData.getUserById(req.params.id).then((user) => {
-        res.json(user);
+        res.render("pages/salon",user);
     }).catch(() => {
         res.status(404).json({ error: "User not found" });
     });
