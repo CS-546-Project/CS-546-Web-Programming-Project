@@ -5,7 +5,8 @@ const vendorsData = data.vendors;
 
 router.get("/:id", (req, res) => {
     vendorsData.getVendorById(req.params.id).then((vendor) => {
-        res.json(vendor);
+        console.log(vendor);
+        res.render("pages/owner",vendor);
     }).catch(() => {
         res.status(404).json({ error: "Vendor not found" });
     });
