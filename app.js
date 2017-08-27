@@ -19,19 +19,18 @@ const static = express.static(__dirname + '/public');
 const configRoutes = require("./routes");
 
 passport.use(new LocalStrategy(
-    function (username, password, done) {
-        let userID = data.users.findUserByUsername(username);
-        if (userID === -999) {
-            return done("User is not found");
+    function (email, password, done) {
+        let vendor = data.vendors.getVendorByEmail(email);
+        if (vendor === undefined) {
+            return done("Saloon is not found");
         }
         else {
-            let userDetails = data.users.getUserInfoByID(userID);
-            bcrypt.compare(password, userDetails.hashedPassword, function (err, res) {
+            bcrypt.compare(password, vendor.hashedPassword, function (err, res) {
                 if (err) {
                     return done(err);
                 }
                 if (res === true) {
-                    return done(null, userDetails);
+                    return done(null, saloonDetails);
                 }
                 else if (res === false) {
                     return done(null, false);
@@ -41,17 +40,17 @@ passport.use(new LocalStrategy(
     }
 ));
 
-passport.serializeUser((user, obj) => {
-    obj(null, user._id);
+passport.serializeUser((vendor, obj) => {
+    obj(null, vendor._id);
 });
 
 passport.deserializeUser((id, obj) => {
-    let userDetails = data.users.getUserInfoByID(id);
-    if (userDetails === -999) {
+    let vendorDetails = data.vendors.getVendorById(id);
+    if (vendorDetails === -999) {
         return obj("There is error");
     }
     else {
-        obj(null, userDetails);
+        obj(null, vendorDetails);
     }
 });
 
@@ -85,7 +84,7 @@ app.use(require('express-session')({ secret: 'keyboard cat', resave: false, save
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/',
+app.get('/vendor',
     require('connect-ensure-login').ensureLoggedIn(),
     function (req, res) {
         res.render('pages/private', { userInfo: req.user });

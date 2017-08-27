@@ -165,6 +165,6 @@ exportedMethods.addReviews("28f0ff0d-0302-4a4a-a31e-7c9ed20945ea", "72f74edd-499
 exportedMethods.updateVendorInfo('0b8bbd98-3981-47fa-bd2b-2b57f29054cb', data).then((data) => {
     console.log(data);
 }) */
-exportedMethods.getVendorByEmail("rsutariy@stevens.edu").then((data) => {
+/* exportedMethods.getVendorByEmail("rsutariy@stevens.edu").then((data) => {
     console.log(data);
-});
+}); */
