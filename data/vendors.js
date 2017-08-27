@@ -1,11 +1,5 @@
 /******************************************
- *  Author : Harsh Jagdishbhai Kevadia   
- *  Created On : Mon Aug 14 2017
- *  File : vendors.js
- *******************************************/
-
-/******************************************
- *  Author : Harsh Jagdishbhai Kevadia   
+ *  Author : Ruchika Batukbhai Sutariya & Harsh Jagdishbhai Kevadia
  *  Created On : Mon Aug 14 2017
  *  File : vendors.js
  *******************************************/
@@ -93,33 +87,31 @@ let exportedMethods = {
             });
         });
     },
-
     getReviewsFromReviewId(reviewId) {
-        if (!reviewId) 
+        if (!reviewId)
             return Promise.reject("You must provide an ReviewID");
         return vendors().then((vendorsCollection) => {
             return vendorsCollection.findOne({ $where: "this.reviews.id = '" + reviewId + "'" }).then((data) => {
-                if (!data) 
+                if (!data)
                     throw "Reviews not Found !";
                 let vendordata = data.reviews.filter(function (reviews) {
                     return reviews._id == reviewId;
                 })[0];
                 vendordata._id = data._id;
-                vendordata.saloonName= data.saloonName;
-                vendordata.address= data.address;
-                vendordata.contactNumber= data.contactNumber;
-                vendordata.state= data.state;
-                vendordata.city= data.city;
-                vendordata.zipCode=data.zipCode;
-                vendordata.email= data.email;
-                return  vendordata;
+                vendordata.saloonName = data.saloonName;
+                vendordata.address = data.address;
+                vendordata.contactNumber = data.contactNumber;
+                vendordata.state = data.state;
+                vendordata.city = data.city;
+                vendordata.zipCode = data.zipCode;
+                vendordata.email = data.email;
+                return vendordata;
             });
         });
     },
-
-    addReviews(id,userId, rating, reviews) {
+    addReviews(id, userId, rating, reviews) {
         return vendors().then((vendorsReviewsCollection) => {
-            reviewId = uuid()
+            reviewId = uuid();
             let addReviews = {
                 _id: reviewId,
                 userId: userId,
@@ -139,14 +131,15 @@ let exportedMethods = {
 }
 module.exports = exportedMethods;
 
-exportedMethods.addReviews("6e4e6784-e81c-4037-a986-91d38cfa4aa3", "5", "It is good").then((data) => {
-    console.log(data);
-}); 
 
-
-/*exportedMethods.addVendor("SalonX", "3588 John F Kennedy Blvd", "201-993-8891", "NJ", "Jersey City", "07307", "rsutariy@stevens.edu", "ruchika123").then((data) => {
+/* exportedMethods.addReviews("28f0ff0d-0302-4a4a-a31e-7c9ed20945ea", "72f74edd-499d-4056-bab4-5e092ba4d565", "5", "It is good").then((data) => {
     console.log(data);
-}); 
+});
+ */
+
+/* exportedMethods.addVendor("SalonX", "3588 John F Kennedy Blvd", "201-993-8891", "NJ", "Jersey City", "07307", "rsutariy@stevens.edu", "ruchika123").then((data) => {
+    console.log(data);
+});  */
 
 /*exportedMethods.removeVendor('62f794c8-b6cf-4bb7-be3a-a5283ac37ffc').then(() => {
     console.log("Removed");
