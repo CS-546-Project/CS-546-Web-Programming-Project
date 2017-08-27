@@ -94,6 +94,91 @@ let exportedMethods = {
                 });
             });
         });
+    },
+    getReviewsFromReviewId(reviewId) {
+        if (!reviewId)
+            return Promise.reject("You must provide an ReviewID");
+        return vendors().then((vendorsCollection) => {
+            return vendorsCollection.findOne({ $where: "this.reviews._id = '" + reviewId + "'" }).then((data) => {
+                if (!data)
+                    throw "Reviews not Found !";
+                let vendordata = data.reviews.filter(function (reviews) {
+                    return reviews._id == reviewId;
+                })[0];
+                vendordata._id = data._id;
+                vendordata.saloonName = data.saloonName;
+                vendordata.address = data.address;
+                vendordata.contactNumber = data.contactNumber;
+                vendordata.state = data.state;
+                vendordata.city = data.city;
+                vendordata.zipCode = data.zipCode;
+                vendordata.email = data.email;
+                return vendordata;
+            });
+        });
+    },
+    addReviews(VendorId, userId, rating, reviews) {
+        return vendors().then((vendorsReviewsCollection) => {
+            reviewId = uuid();
+            let addReviews = {
+                _id: reviewId,
+                userId: userId,
+                rating: rating,
+                reviews: reviews
+            };
+            return vendorsReviewsCollection.updateOne({_id: VendorId }, { $push: { "reviews": addReviews } }).then(function () {
+                return exportedMethods.getReviewsFromReviewId(reviewId).then((data) => {
+                    return data;
+                }, (err) => {
+                    return Promise.reject("Cannot add this reviews");
+                });
+            });
+        });
+    },
+    removeReviews(reviewId) {
+        return vendors().then((vendorsCollection) => {
+            return vendorsCollection.updateOne(
+                { "reviews._id": reviewId },
+                { $unset: { "reviews.$._id": reviewId } }
+            ).then((deletionInfo) => {
+                if (deletionInfo.updatedCount === 0) {
+                    throw (`Could not get reviews with id of ${reviewId}`)
+                }
+            });
+        });
+    },
+
+    updateReviews(VendorId, reviewId, updateddata) {
+        return this.getReviewsFromReviewId(reviewId).then((currentReview) => {
+            if (!currentReview) throw "Reviews not found !";
+
+            let reviewInfo = currentReview;
+            if ('userId' in updateddata) {
+                reviewInfo.userId = updateddata.userId;
+            }
+            if ('rating' in updateddata) {
+                reviewInfo.rating = updateddata.rating;
+            }
+            if ('reviews' in updateddata) {
+                reviewInfo.reviews = updateddata.reviews;
+            }
+            delete reviewInfo['vendorId'];
+            delete reviewInfo['saloonName'];
+            delete reviewInfo['address'];
+            delete reviewInfo['contactNumber'];
+            delete reviewInfo['state'];
+            delete reviewInfo['city'];
+            delete reviewInfo['zipcode'];
+            delete reviewInfo['email'];
+            let updateReviewdata = {
+                $set: { "reviews.$": reviewInfo }
+            };
+            return vendors().then((vendorsCollection) => {
+                return vendorsCollection.updateOne({ "reviews._id": reviewId }, updateReviewdata).then(() => {
+                    return this.getReviewsFromReviewId(reviewId);
+                });
+            });
+        });
     }
 
 }
@@ -113,7 +198,9 @@ exportedMethods.updateReviews("24a95bf7-5a6e-4f98-8b25-240aa2184e30", "9c74f2bb-
     console.log(data);
 });
 */
-
+exportedMethods.getReviewsFromReviewId("9c74f2bb-3529-4c1d-b0a4-4db1d38e935a").then((data) => {
+    console.log(data);
+});
 
 /* 
 exportedMethods.addReviews("28f0ff0d-0302-4a4a-a31e-7c9ed20945ea", "72f74edd-499d-4056-bab4-5e092ba4d565", "5", "It is TOO good").then((data) => {

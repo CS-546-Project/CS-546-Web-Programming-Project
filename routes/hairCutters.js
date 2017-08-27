@@ -10,15 +10,11 @@ router.get("/:id", (req, res) => {
         res.status(404).json({ error: "Hair Cutter not found" });
     });
 });
-
-
-
-
 router.post("/", (req, res) => {
     let hairCutterBody = req.body;
 
-    hairCuttersData.addhairCutter(hairCutterBody.vendorId,hairCutterBody.firstName, hairCutterBody.lastName, 
-    hairCutterBody.heading, hairCutterBody.image, hairCutterBody.description)
+    hairCuttersData.addhairCutter(hairCutterBody.vendorId, hairCutterBody.firstName, hairCutterBody.lastName,
+        hairCutterBody.heading, hairCutterBody.image, hairCutterBody.description)
         .then((newHairCutter) => {
             res.json(newHairCutter);
         }).catch((e) => {
@@ -39,7 +35,7 @@ router.put("/:id", (req, res) => {
                 res.status(500).json({ error: e });
             });
     }).catch((e) => {
-console.log(e);
+        console.log(e);
         res.status(404).json({ error: "Hair Cutter not found" });
     });
 

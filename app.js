@@ -13,9 +13,8 @@ const exphbs = require('express-handlebars');
 const Handlebars = require('handlebars');
 
 const data = require("./data");
-const users = data.users;
-const static = express.static(__dirname + '/public');
 
+const static = express.static(__dirname + '/public');
 const configRoutes = require("./routes");
 
 passport.use(new LocalStrategy(
@@ -46,7 +45,7 @@ passport.serializeUser((vendor, obj) => {
 
 passport.deserializeUser((id, obj) => {
     let vendorDetails = data.vendors.getVendorById(id);
-    if (vendorDetails === -999) {
+    if (vendorDetails === undefined) {
         return obj("There is error");
     }
     else {
@@ -84,7 +83,7 @@ app.use(require('express-session')({ secret: 'keyboard cat', resave: false, save
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/vendor',
+/* app.get('/vendor',
     require('connect-ensure-login').ensureLoggedIn(),
     function (req, res) {
         res.render('pages/private', { userInfo: req.user });
@@ -105,7 +104,11 @@ app.get('/private',
     require('connect-ensure-login').ensureLoggedIn(),
     function (req, res) {
         res.render('pages/private', { userInfo: req.user });
-    });
+    }); */
+
+
+
+configRoutes(app);
 
 app.listen(3000, () => {
     console.log("We've now got a server!");

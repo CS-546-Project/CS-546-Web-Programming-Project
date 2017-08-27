@@ -11,14 +11,10 @@ router.get("/:id", (req, res) => {
     });
 });
 
-
-
-
 router.post("/", (req, res) => {
     let vendorBody = req.body;
-
     vendorsData.addVendor(vendorBody.saloonName, vendorBody.address, vendorBody.contactNumber, vendorBody.state,
-     vendorBody.city, vendorBody.zipCode, vendorBody.email, vendorBody.password)
+        vendorBody.city, vendorBody.zipCode, vendorBody.email, vendorBody.password)
         .then((newVendor) => {
             res.json(newVendor);
         }).catch((e) => {
@@ -28,9 +24,7 @@ router.post("/", (req, res) => {
 
 router.put("/:id", (req, res) => {
     let updatedData = req.body;
-
     let getVendor = vendorsData.getVendorById(req.params.id);
-
     getVendor.then(() => {
         return vendorsData.updateVendorInfo(req.params.id, updatedData)
             .then((updatedVendor) => {
@@ -39,12 +33,11 @@ router.put("/:id", (req, res) => {
                 res.status(500).json({ error: e });
             });
     }).catch((e) => {
-console.log(e);
+        console.log(e);
         res.status(404).json({ error: "Vendor not found" });
     });
 
 });
-
 router.delete("/:id", (req, res) => {
     let getVendor = vendorsData.getVendorById(req.params.id);
 
@@ -73,11 +66,11 @@ router.post("/:id", (req, res) => {
     let reviewBody = req.body;
     let getReview = vendorsData.getReviewsFromReviewId(req.params.id);
 
-    vendorsData.addReviews(getReview._id,,commentBody.poster,commentBody.comment)
+    vendorsData.addReviews(getReview._id, commentBody.poster, commentBody.comment)
         .then((newComment) => {
             res.json(newComment);
         }).catch((e) => {
-                    console.log(e);
+            console.log(e);
 
             res.status(500).json({ error: e });
         });
