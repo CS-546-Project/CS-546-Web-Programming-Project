@@ -109,7 +109,7 @@ let exportedMethods = {
             });
         });
     },
-    addReviews(id, userId, rating, reviews) {
+    addReviews(VendorId, userId, rating, reviews) {
         return vendors().then((vendorsReviewsCollection) => {
             reviewId = uuid();
             let addReviews = {
@@ -118,7 +118,7 @@ let exportedMethods = {
                 rating: rating,
                 reviews: reviews
             };
-            return vendorsReviewsCollection.updateOne({ _id: id }, { $push: { "reviews": addReviews } }).then(function () {
+            return vendorsReviewsCollection.updateOne({ _id: VendorId }, { $push: { "reviews": addReviews } }).then(function () {
                 return exportedMethods.getReviewsFromReviewId(reviewId).then((data) => {
                     return data;
                 }, (err) => {
