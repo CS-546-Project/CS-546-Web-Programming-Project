@@ -10,6 +10,14 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 let exportedMethods = {
+    getUserByEmail(email) {
+        return users().then((usersCollection) => {
+            return usersCollection.findOne({ email: email }).then((user) => {
+                if (!user) throw "Email not found in DB";
+                return user;
+            });
+        });
+    },
     getUserById(id) {
         return users().then((usersCollection) => {
             return usersCollection.findOne({ _id: id }).then((user) => {
@@ -115,3 +123,6 @@ module.exports = exportedMethods;
 exportedMethods.updateUserInfo('fbee5da4-77a1-4923-a185-5043a63bd152', data).then((data) => {
     console.log(data);
 }) */
+/* exportedMethods.getUserByEmail("hkevadia@stevens.edu").then((data) => {
+    console.log(data);
+}); */

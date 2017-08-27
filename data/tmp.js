@@ -10,12 +10,15 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 let exportedMethods = {
-    getVendorByEmail(email) {
+    getAllVendors() {
         return vendors().then((vendorsCollection) => {
-            return vendorsCollection.findOne({ email: email }).then((vendor) => {
-                if (!vendor) throw "Email not found in DB";
-                return vendor;
-            });
+            return vendorsCollection.find().toArray(function (err, result) {
+                var i, count;
+                for (i = 0, count = result.length; i < count; i++) {
+                  propArray.push(new models.propertyModel(result[i]));
+                }
+                return res.json(propArray);
+              });
         });
     },
     getVendorById(id) {
@@ -139,11 +142,13 @@ let exportedMethods = {
 }
 module.exports = exportedMethods;
 
-/* 
-exportedMethods.addReviews("28f0ff0d-0302-4a4a-a31e-7c9ed20945ea", "72f74edd-499d-4056-bab4-5e092ba4d565", "5", "It is TOO good").then((data) => {
+exportedMethods.getAllVendors().then((data) => {
     console.log(data);
-}); */
-
+});
+/* exportedMethods.addReviews("28f0ff0d-0302-4a4a-a31e-7c9ed20945ea", "72f74edd-499d-4056-bab4-5e092ba4d565", "5", "It is good").then((data) => {
+    console.log(data);
+});
+ */
 
 /* exportedMethods.addVendor("SalonX", "3588 John F Kennedy Blvd", "201-993-8891", "NJ", "Jersey City", "07307", "rsutariy@stevens.edu", "ruchika123").then((data) => {
     console.log(data);
@@ -165,6 +170,3 @@ exportedMethods.addReviews("28f0ff0d-0302-4a4a-a31e-7c9ed20945ea", "72f74edd-499
 exportedMethods.updateVendorInfo('0b8bbd98-3981-47fa-bd2b-2b57f29054cb', data).then((data) => {
     console.log(data);
 }) */
-exportedMethods.getVendorByEmail("rsutariy@stevens.edu").then((data) => {
-    console.log(data);
-});
