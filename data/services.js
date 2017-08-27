@@ -70,6 +70,46 @@ let exportedMethods = {
             });
         });
     },
+    getReviewsFromReviewId(reviewId) {
+        if (!reviewId)
+            return Promise.reject("You must provide an ReviewID");
+        return vendors().then((vendorsCollection) => {
+            return vendorsCollection.findOne({ $where: "this.reviews.id = '" + reviewId + "'" }).then((data) => {
+                if (!data)
+                    throw "Reviews not Found !";
+                let vendordata = data.reviews.filter(function (reviews) {
+                    return reviews._id == reviewId;
+                })[0];
+                vendordata._id = data._id;
+                vendordata.saloonName = data.saloonName;
+                vendordata.address = data.address;
+                vendordata.contactNumber = data.contactNumber;
+                vendordata.state = data.state;
+                vendordata.city = data.city;
+                vendordata.zipCode = data.zipCode;
+                vendordata.email = data.email;
+                return vendordata;
+            });
+        });
+    },
+    addReviews(userId,rating, reviews) {
+        return vendors().then((vendorsReviewsCollection) => {
+            serviceId = uuid();
+            let addReviews = {
+                _id: serviceId,
+                userId: userId,
+                rating: rating,
+                reviews: reviews
+            };
+            return vendorsReviewsCollection.updateOne({_id: VendorId }, { $push: { "Service reviews": addReviews } }).then(function () {
+                return exportedMethods.getReviewsFromReviewId(re).then((data) => {
+                    return data;
+                }, (err) => {
+                    return Promise.reject("Cannot add this reviews");
+                });
+            });
+        });
+    }
 }
 module.exports = exportedMethods;
 
