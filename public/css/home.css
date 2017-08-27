@@ -1,287 +1,71 @@
-body, html {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  background-image: url(http://cdn.wallpapersafari.com/6/46/Of0U1r.jpg);
-  color: darkmagenta ;
-}
-img {
-    border: 1px solid #ddd; /* Gray border */
-    border-radius: 4px;  /* Rounded border */
-    padding: 5px; /* Some padding */
-    width: 150px; /* Set a small width */
-}
+<!DOCTYPE html>
+<html lang="en"> 
 
-/* Add a hover effect (blue shadow) */
-img:hover {
-    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-}
-header {
-    background-color:palevioletred;
-}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-ul {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-textarea {
-vertical-align: middle;
-}
-#tabs li {
-    float:right;
-    width:15%;
-    border-spacing: 10px;
-    padding: 10px 1% 10px 1%;
-}
+    <meta name="description" content="This is the home page for Salon Portal">
+    <meta name="author" content="">
 
-h2{
-    color: whitesmoke;
-}
+    <title>Salon Portal</title>
+    <link rel = "stylesheet"   type = "text/css"   href = "public/css/home.css" />        
+</head>
 
-h3{
-    color: whitesmoke;
-}
-
-textarea {
-  width: 600px;
-  height: 150px;
-}
-
-#container{width:100%;
-height: 100px;
-}
-#left{float:left;
-       height: 100%;
-        margin-left: 20px;
-       width:auto;}
-#right{float:right;
-  height: 100%;
-width:auto;}
-#benefits {
-    color: whitesmoke;
-    float:right;
-}
-
- div.stars {
-  width: 270px;
-  display: inline-block;
-        vertical-align: middle;
-
-}
-
-input.star { display: none; }
-
-label.star {
-  float: right;
-  padding: 10px;
-  font-size: 36px;
-  
-  color: #444;
-  transition: all .2s;
-}
-
-input.star:checked ~ label.star:before {
-  content: '\f005';
-  color: #FD4;
-  transition: all .25s;
-}
-
-input.star-5:checked ~ label.star:before {
-  color: #FE7;
-  text-shadow: 0 0 20px #952;
-}
-
-input.star-1:checked ~ label.star:before { color: #F62; }
-
-label.star:hover { transform: rotate(-15deg) scale(1.3); }
-
-label.star:before {
-  content: '\f006';
-  font-family: FontAwesome;
-}
-#login{
-    width: 30%;	
-    margin:auto;
-    text-align: center;
-      vertical-align: middle;
-
-
-	border: 1px solid rgba(147, 184, 189,0.8);
-	-webkit-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-	   -moz-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-	        box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-	-webkit-box-shadow: 5px;
-	-moz-border-radius: 5px;
-		 border-radius: 5px;
-}
-
-#search{
-    width: 60%;	
-    margin:auto;
-    text-align: center;
-      vertical-align: middle;
-
-
-	border: 1px solid rgba(147, 184, 189,0.8);
-	-webkit-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-	   -moz-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-	        box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-	-webkit-box-shadow: 5px;
-	-moz-border-radius: 5px;
-		 border-radius: 5px;
-}
-#salon{
-   
-    text-align: left;
-    margin-left: 20px;
-    padding: 10px 10px 10px 10px;
-    color:whitesmoke;  
-    width: 50%;   
-	border: 1px solid rgba(147, 184, 189,0.8);
-	-webkit-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-	   -moz-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-	        box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-	-webkit-box-shadow: 5px;
-	-moz-border-radius: 5px;
-		 border-radius: 5px;
-}
-#searchBox{
-    width: 100%;
-    margin: auto;
-}
-p{
-    margin-left: 20px;
-    color: #ffffcc;  
-    font-size: 15px;
-}
-
-#listing li {
-    margin: 20px;
-}
-#signin{
-    width: 30%;	
-    padding: 10px 3% 20px 3%;
-    margin: 10px 10px 10px 10px;
-    margin-top: 30px;
-    margin-left: 50px;
-	border: 1px solid rgba(147, 184, 189,0.8);
-	-webkit-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-	   -moz-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-	        box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-	-webkit-box-shadow: 5px;
-	-moz-border-radius: 5px;
-		 border-radius: 5px;
-}
-#review{
-    width: 30%;	
-    margin:auto;
-    text-align: center;
-      vertical-align: middle;
-    	background: rgb(247, 247, 247);
-	border: 1px solid rgba(147, 184, 189,0.8);
-	-webkit-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-	   -moz-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-	        box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-	-webkit-box-shadow: 5px;
-	-moz-border-radius: 5px;
-		 border-radius: 5px;
-}
-
-#boxes input{
-    color:  #5f5f5f;
-    box-sizing: border-box;
-          vertical-align: middle;
-
-    width: 230px;
-    box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.08);
-    padding: 12px 18px;
-    border: 1px solid #dbdbdb;
-}
-
-#results li a{
-    box-sizing: border-box;
-    width: auto;
-    height: auto;
-    font-size: 20px;
-    -webkit-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-    -moz-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-         box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
- -webkit-box-shadow: 5px;
- -moz-border-radius: 5px;
-      border-radius: 5px;
-    text-align: left;
-    display: block;
-    color:wheat;
-
-
-}
-
-#results{
-	border: 1px solid rgba(147, 184, 189,0.8);
-	-webkit-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-	   -moz-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-	        box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-	-webkit-box-shadow: 5px;
-	-moz-border-radius: 5px;
-         border-radius: 5px;
-        padding: 20px 20px 20px 20px;
-}
-
-#results h3{
-    color: whitesmoke;
-    text-align: center;
-    font-size: 30px;
-}
-
-#results li ul{
-    text-align: right;
-    color:black;
-    box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.4);
-}
-
-#tabs li a {
-    display: block;
-    color:darkmagenta;
-    background-color: rgb(247, 247, 247);
-    text-align: center;
-    border-style: solid;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-#tabs li a:hover {
-    background-color:palevioletred;
-}
-
-.navbar-inverse {
-      border: none;
-    }
-
-h1 {
- color: whitesmoke;
- text-align: center;
- font: italic 200% fantasy;
-}
-
-#salon_logo {
-    float:left;
-    width:50%;
-}
-
-#hints{
-    margin-right: 20 px;
-    display: inline;
-}
-
-footer{
-    margin: 20px;
-    padding-top: 40px;
-    text-align: left;
-    color: palevioletred;
-}
-
-footer a{
-    text-align: right;
-}
+<body>
+	<header>
+        <div id="salon_bar">
+            <nav class="navbar navbar-inverse">
+                <div id="tabs" class="container-fluid">
+                    <ol class="nav navbar-nav">
+                        <li  style="display:inline;"><a href="#">Sign Up</a></li>
+                        <li style="display:inline;"><a href"#">Terms and Conditions</a></li>
+                        <li  style="display:inline;"><a href="#">About</a></li>
+                        <li  style="display:inline;"><a href="#">Contact Us</a></li>
+                        <li class="active"  style="display:inline;"><a href="#">Home</a></li>
+                    </ol>
+                </div>
+            </nav>
+        </div>       
+    </header>
+    <div id="container_demo">
+         <img src="logo.png" alt="logo">
+    </div>
+    <div id="login" class="animate form">
+            <form  class="login" action="" autocomplete="on"> 
+                <h2>Log in</h2> 
+                <input type="radio" name="login" value="Customer" checked> Customer
+                <input type="radio" name="login" value="Owner"> Salon Owner <br>
+                <div id="boxes"> 
+                    <p> 
+                        <label for="email" class="email" data-icon="u" > Email </label>
+                        <input id="email" name="email" required="required" type="text" placeholder="mymail@mail.com"/>
+                    </p>
+                    <p> 
+                        <label for="password" class="youpasswd" data-icon="p"> Password </label>
+                        <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" /> 
+                    </p>
+                </div>
+                <br>
+                    <p class="keeplogin"> 
+                        <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
+                        <label for="loginkeeping">Keep me logged in</label>
+                        <input type="submit" value="Login" /> 
+                    </p>
+                    <p class="change_link">
+                        Not a member yet ?
+                        <br><a href="#" class="to_register">Join as Customer</a><br>
+                        <a href="#" class="to_register">Join as Salon Owner</a>
+                    </p>
+            </form>
+        </div>
+        <footer>
+                This website is a project for CS 546 WS 2017 &copy; Copyright 2017 Salon Portal Team
+                <div id="right">
+                <a href="#">Contact Us</a>
+                </div>
+        </footer>
+</body>
+    
+</html>
