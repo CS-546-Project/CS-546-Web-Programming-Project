@@ -16,21 +16,22 @@
     <div id="container_demo">
          <img src="logo.png" alt="logo">
     </div>
-    <div id="login" class="animate form">
+       <div id="login" class="animate form">
             <form  class="login" action="" autocomplete="on"> 
                 <h2>Log in</h2> 
                 <input type="radio" name="login" value="Customer" checked> Customer
                 <input type="radio" name="login" value="Owner"> Salon Owner <br>
                 <div id="boxes"> 
                     <p> 
-                        <label for="username" class="uname" data-icon="u" > Username </label>
-                        <input id="username" name="username" required="required" type="text" placeholder="myusername or mymail@mail.com"/>
+                        <label for="email" class="email" data-icon="u" > Email </label>
+                        <input id="email" name="email" required="required" type="text" placeholder="mymail@mail.com"/>
                     </p>
                     <p> 
                         <label for="password" class="youpasswd" data-icon="p"> Password </label>
                         <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" /> 
                     </p>
                 </div>
+                <br>
                     <p class="keeplogin"> 
                         <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
                         <label for="loginkeeping">Keep me logged in</label>
@@ -38,8 +39,8 @@
                     </p>
                     <p class="change_link">
                         Not a member yet ?
-                        <a href="#" class="to_register">Join us as Customer</a>
-                        <a href="#" class="to_register">Join us as Salon Owner</a>
+                        <br><a href="#" class="to_register">Join as Customer</a><br>
+                        <a href="#" class="to_register">Join as Salon Owner</a>
                     </p>
             </form>
         </div>
