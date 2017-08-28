@@ -16,7 +16,8 @@ router.post("/", (req, res) => {
     hairCuttersData.addhairCutter(hairCutterBody.vendorId, hairCutterBody.firstName, hairCutterBody.lastName,
         hairCutterBody.heading, hairCutterBody.image, hairCutterBody.description)
         .then((newHairCutter) => {
-            res.json(newHairCutter);
+            res.redirect('/vendors/' + newHairCutter.vendorId);
+            //res.json(newHairCutter);
         }).catch((e) => {
             res.status(500).json({ error: e });
         });

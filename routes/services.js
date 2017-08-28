@@ -20,7 +20,8 @@ router.post("/", (req, res) => {
     serviceData.addService(serviceBody.vendorId, serviceBody.service,
      serviceBody.description, serviceBody.cost)
         .then((newServive) => {
-            res.json(newServive);
+            res.redirect('/vendors/' + newServive.vendorId);
+            //res.json(newServive);
         }).catch((e) => {
             res.status(500).json({ error: e });
         });

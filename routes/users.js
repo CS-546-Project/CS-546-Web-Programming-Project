@@ -28,7 +28,6 @@ router.get("/salon/:id", (req, res) => {
 
 router.post("/stylist/:id", (req, res) => {
     vendorsData.getAllHairCuttersFromVendorId(req.params.id).then((vendor) => {
-        console.log(vendor);
         res.render("pages/salon", vendor);
     }).catch(() => {
         res.status(404).json({ error: "Haircutter not found" });
