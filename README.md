@@ -1,85 +1,77 @@
 # Saloon Portal
 
-One Paragraph of project description goes here
+Our project is called Salon Portal. This will be like Seamless but
+this will help customers find the most suitable salon instead of restaurants and salon owners
+can create visibility for their salon.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+The project can be found on github at https://github.com/CS-546-Project/Saloon-Portal.git. It can be downloaded or cloned and run on your local machine.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+You need to have Node js and Mongodb on your local machine.
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+Once the project is downloaded you have to delete the node modules folder
+Then install all the dependencies mentioned in the package.json
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.2",
+    "connect-ensure-login": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.5",
+    "handlebars": "^4.0.10",
+    "mongodb": "^2.2.31",
+    "morgan": "^1.8.2",
+    "multer": "^1.3.0",
+    "node-uuid": "^1.4.8",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "uuid": "^3.1.0"
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+//Explain how to run the automated tests for this system
 
 ### Break down into end to end tests
 
-Explain what these tests test and why
-
-```
-Give an example
-```
+//Explain what these tests test and why
 
 ### And coding style tests
 
-Explain what these tests test and why
-
-```
-Give an example
-```
+We ran all the HTML code against a validator and fixed all the errors
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+The Mongodb has to be started and then on running "npm start" the server starts running
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+// [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+//[Maven](https://maven.apache.org/) - Dependency Management
+// [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+//Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the //process for submitting pull requests to us.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+//We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
 * **Aakriti Srivastava** - *Initial work* - [aakriti7](https://github.com/aakriti7)
 * **Harsh Kevadia** - *Initial work* - [harshjk](https://github.com/harshjk)
 * **Jay Dangi** - *Initial work* - [harshjk](https://github.com/harshjk)
-* **Renuka Dakshinamurthy** - *Initial work* - [harshjk](https://github.com/harshjk)
+* **Renuka Dakshinamurthy** - *Initial work* - [harshjk](https://github.com/rdakshina)
 * **Ruchika Sutariya** - *Initial work* - [rsutariy](https://github.com/rsutariy)
 
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/CS-546-Project/Saloon-Portal/graphs/contributors) who participated in this project.
 
 ## License
 
