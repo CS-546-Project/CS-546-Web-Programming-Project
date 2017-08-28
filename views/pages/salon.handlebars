@@ -1,65 +1,68 @@
 <div id="container">
-        <div id="salon" class="animate form">
+    <div id="salon" class="animate form">
 
-            <h2>{{vendor.saloonName}}</h2>
-            <p>Scissors and Razors Salon is located in Hoboken, NJ. The salon offers services like hairdressing, hair extension
-                and nail art. Other services include shampooing, conditioning and blow drying and are also expert in hair
-                coloring and styling.</p>
-            <h3>Address</h3>
-            <p>{{vendor.address}}</p>
-            
-            <h3>Stylists</h3>
-            <div id="listing">
-                <ul>
-                    {{#each stylst}}
-                    <li><a href="http://localhost:3000/hairCutters/{{this._id}}"> {{this.firstName}} {{this.lastName}}</a></li>
-                    {{/each}}
-                </ul>
+        <h2>{{vendor.saloonName}}</h2>
+        <p>Scissors and Razors Salon is located in Hoboken, NJ. The salon offers services like hairdressing, hair extension
+            and nail art. Other services include shampooing, conditioning and blow drying and are also expert in hair coloring
+            and styling.</p>
+        <h3>Address</h3>
+        <p>{{vendor.address}}</p>
+
+        <h3>Stylists</h3>
+        <div id="listing">
+            <ul>
+                {{#each stylst}}
+                <li><a href="http://localhost:3000/hairCutters/{{this._id}}"> {{this.firstName}} {{this.lastName}}</a></li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <h3>Services</h3>
+        <div id="listing1">
+            <ul>
+                {{#each services}}
+                <li><a href="http://localhost:3000/services/{{this._id}}"> {{this.serviceName}}</a></li>
+                {{/each}}
+            </ul>
+        </div>
+
+
+        <h3>Reviews</h3>
+        <ul>
+            {{#each reviews}}
+            <li> Review: {{this.review}} </li>
+            {{!--
+            <li>User ID: {{this.userId}}</li>--}}
+            <li>Rating: {{this.rating}} </li>
+            {{/each}}
+        </ul>
+
+        <div class="stars">
+            <input class="star star-5" name="five" id="star-5" type="radio" />
+            <label class="star star-5" for="star-5"></label>
+            <input class="star star-4" name="four" id="star-4" type="radio" />
+            <label class="star star-4" for="star-4"></label>
+            <input class="star star-3" name="three" id="star-3" type="radio" />
+            <label class="star star-3" for="star-3"></label>
+            <input class="star star-2" name="two" id="star-2" type="radio" />
+            <label class="star star-2" for="star-2"></label>
+            <input class="star star-1" name="one" id="star-1" type="radio" />
+            <label class="star star-1" for="star-1"></label>
+
+
+
+
+            <div class="animate form">
+                <form id="reviewForm" action="/reviews/{{_id}}" method="post">
+
+                </form>
+
             </div>
-
-            <h3>Services</h3>
-            <div id="listing1">
-                <ul>
-                    {{#each services}}
-                    <li><a href="http://localhost:3000/services/{{this._id}}"> {{this.serviceName}}</a></li>
-                    {{/each}}
-                </ul>
-            </div>
-            
-                  
-                    <h3>Reviews</h3>
-<ul>
-                            {{#each reviews}}
-                            <li> Review: {{this.review}}  </li>
-                            {{!--<li>User ID: {{this.userId}}</li>--}}
-                            <li>Rating: {{this.rating}} </li>
-</ul>
-                                   
-                                        <div class="stars">
-                                            <input class="star star-5" name="five" id="star-5" type="radio" />
-                                            <label class="star star-5" for="star-5"></label>
-                                            <input class="star star-4" name="four" id="star-4" type="radio" />
-                                            <label class="star star-4" for="star-4"></label>
-                                            <input class="star star-3" name="three" id="star-3" type="radio"  />
-                                            <label class="star star-3" for="star-3"></label>
-                                            <input class="star star-2" name="two" id="star-2" type="radio" />
-                                            <label class="star star-2" for="star-2"></label>
-                                            <input class="star star-1" name="one" id="star-1" type="radio" />
-                                            <label class="star star-1" for="star-1"></label>
-                                   
-                                   
-                           
-                            {{/each}}
-                            <div class="animate form">
-                                <form id="reviewForm" action="/reviews/{{_id}}" method="post">
-                                    
-                                </form>
-
-                                </div>
-                            </div>
+        </div>
     </div>
 </div>
-{{!<div id="right">
+{{!
+<div id="right">
 
     <table>
         <tr>

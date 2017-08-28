@@ -13,8 +13,8 @@ const hairCuttersData = data.hairCutters;
 
 router.get("/:id", (req, res) => {
     hairCuttersData.gethairCutterById(req.params.id).then((hairCutters) => {
-        hairCuttersData.getAllReviewsFromhairCutterId(req.params.id).then((reviews) => {
-            res.render("pages/stylists", hairCutters, reviews);
+        hairCuttersData.getAllReviewsFromhairCutterId(hairCutters._id).then((reviews) => {
+            res.render("pages/stylists", {hairCutters: hairCutters, reviews: reviews});
         }).catch(() => {
             res.status(404).json({ error: "Salon not found" });
         });

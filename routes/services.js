@@ -5,7 +5,9 @@ const serviceData = data.services;
 
 router.get("/:id", (req, res) => {
     serviceData.getServicesById(req.params.id).then((service) => {
-        res.render("pages/services",service);
+        serviceData.getAllReviewsFromServiceId(service._id).then((reviews) => {
+            res.render("pages/services", { service: service, reviews: reviews });
+        })
     }).catch(() => {
         res.status(404).json({ error: "service not found" });
     });
@@ -17,7 +19,7 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
     let serviceBody = req.body;
     serviceData.addService(serviceBody.vendorId, serviceBody.serviceName,
-     serviceBody.description, serviceBody.cost)
+        serviceBody.description, serviceBody.cost)
         .then((newServive) => {
             res.redirect('/vendors/' + newServive.vendorId);
             //res.json(newServive);
@@ -39,7 +41,7 @@ router.put("/:id", (req, res) => {
                 res.status(500).json({ error: e });
             });
     }).catch((e) => {
-console.log(e);
+        console.log(e);
         res.status(404).json({ error: "Service not found" });
     });
 

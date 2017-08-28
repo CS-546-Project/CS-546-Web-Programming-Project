@@ -1,39 +1,38 @@
+<div id="container">
+    <div id="left">
+        <div id="stylist" class="animate form">
+            <div id="stylistProfile">
+                <a target="_blank" href="/public/stylistImages/stylist1.jpeg/stylist1.jpeg"></a>
+                <img src="/public/stylistImages/stylist1.jpeg" alt="stylist11">
+                <h3>Name: {{hairCutters.firstName}} {{hairCutters.lastName}}</h3>
+                <h4>Description: {{hairCutters.description}}</h4>
+                <h4>Reviews:</h4>
 
-     
-   
-    <div id="container">
-        <div id="left">
-    <div id="stylist" class="animate form">
-           <div id="stylistProfile">
-          <a target="_blank" href="/public/stylistImages/stylist1.jpeg/stylist1.jpeg"></a>
-  <img src="/public/stylistImages/stylist1.jpeg" alt="stylist11"> <h3>Name: {{firstName}} {{lastName}}</h3>
-            <h4>Description: {{description}}</h4>
-            <h4>Rating: {{rating}}</h4>
+                <div>
+                    <div>
+                        {{#each reviews}}
+                        <p> Review: {{this.review}} </p>
+                        <p>Rating: {{this.rating}} </p>
+                        {{/each}} {{!--
+                        <p>Customer Name: Ronald Weasley</p>
+                        <p>Review: The SMARTEST hair stylists and colorists in Hoboken.</p>
+                    </div>
 
-              <h4>Reviews: {{reviews}}<h4>
+                    <br>
 
-          <div>
-<div>
-{{!--<p>Customer Name: Ronald Weasley</p>
-<p>Review: The SMARTEST hair stylists and colorists in Hoboken.</p>
-</div>
+                    <div>
+                        <p>Customer Name: Hermione Granger</p>
+                        <p>Review: I LOVE LOVE LOVE my new haircut and style!”</p>
+                    </div>
+                    <br>
 
-         <br>
+                    <div>
+                        <p>Customer Name: Draco Malfoy</p>
+                        <p>Review: This is a truly lovely salon.</p>--}}
+                    </div>
 
-<div>
-<p>Customer Name: Hermione Granger</p>
-<p>Review: I LOVE LOVE LOVE my new haircut and style!”</p>
-</div>
-         <br>
-
-<div>
-<p>Customer Name: Draco Malfoy</p>
-<p>Review: This is a truly lovely salon.</p>--}}
-</div>
-
-             </div>   
-           </div>
+                </div>
+            </div>
+        </div>
     </div>
-           </div>
-    </div>   
-        
+</div>

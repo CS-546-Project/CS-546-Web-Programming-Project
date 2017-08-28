@@ -100,14 +100,14 @@ let exportedMethods = {
             });
         });
     },
-    addReviews(hairCutterId, userId, rating, reviews) {
+    addReviews(hairCutterId, userId, rating, review) {
         return hairCutters().then((hairCutterCollection) => {
             reviewId = uuid();
             let addReviews = {
                 _id: reviewId,
                 userId: userId,
                 rating: rating,
-                reviews: reviews
+                review: review
             };
             return hairCutterCollection.updateOne({ _id: hairCutterId }, { $push: { "reviews": addReviews } }).then(function () {
                 return exportedMethods.getReviewsFromReviewId(reviewId).then((data) => {
@@ -118,7 +118,7 @@ let exportedMethods = {
             });
         });
     },
-    
+
     getAllReviewsFromhairCutterId(hairCutterId) {
         if (hairCutterId === undefined)
             return Promise.reject("You must provide an ID");
@@ -139,11 +139,11 @@ module.exports = exportedMethods;
 // exportedMethods.addhairCutter("7f111dc0-19da-4dfe-8346-d41ad021cffc","Jai","Patel", "Hair Stylist", "stylist2.jpeg", "I have been working in a salon since I was 17. After a few years of shampooing and assisting many talented stylists, I decided that I wanted to be the one behind the chair. I started beauty school and while there I attended as many extra classes as I could.").then((data) => {
 //      console.log(data);
 // });
- 
 
-// exportedMethods.addReviews("7f111dc0-19da-4dfe-8346-d41ad021cffc", "c925049f-098e-4b00-8543-15c46e7617b6", "5", "It is TOO good").then((data) => {
-//      console.log(data);
-//  });
+/* 
+exportedMethods.addReviews("fc5ae36d-8160-4f76-ae40-e18509d6e956", "c925049f-098e-4b00-8543-15c46e7617b6", "5", "Harsh is very good person!").then((data) => {
+    console.log(data);
+}); */
 
 
 //exportedMethods.getAllReviewsFromVendorId("9c4ba232-aae0-4307-82fc-ddfec2c9f280").then((data) => {
