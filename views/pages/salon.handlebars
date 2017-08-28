@@ -1,114 +1,107 @@
+<div id="container">
+    <div id="left">
+        <div id="salon" class="animate form">
 
-    <div id="container">
-        <div id="left">
-    <div id="salon" class="animate form">
+            <h2>{{vendor.saloonName}}</h2>
+            <p>Scissors and Razors Salon is located in Hoboken, NJ. The salon offers services like hairdressing, hair extension
+                and nail art. Other services include shampooing, conditioning and blow drying and are also expert in hair
+                coloring and styling.</p>
+            <h3>Address</h3>
+            <p>{{vendor.address}}</p>
+            <h3>Timings</h3>
+            <p>10 a.m to 7 p.m.</p>
+            <h3>Stylists</h3>
+            <div id="listing">
+                <ul>
+                    {{#each .}}
+                    <li><a href="http://localhost:3000/hairCutters/{{stylst._id}}"> {{stylst.firstName}} {{stylst.lastname}}</a></li>
+                    {{/each}}
+                </ul>
+            </div>
 
-        <h2>{{vendor.saloonName}}</h2>
-        <p>Scissors and Razors Salon is located in Hoboken, NJ. The salon offers services
-            like hairdressing, hair extension and nail art. Other services include shampooing, conditioning
-            and blow drying and are also expert in hair coloring and styling.</p>
-        <h3>Address</h3>
-        <p>{{address}}</p>
-        <h3>Timings</h3>
-        <p>10 a.m to 7 p.m.</p>
-         <form id="stylistForm" action="/stylist/{{_id}}" method="post">
-      <input type="submit" value="Get Stylists" /> 
-    </form>
-        <h3>Stylists</h3>
-                <div id="listing">
-        <ul>
-    {{#each .}}
-        <li><a href="http://localhost:3000/hairCutters/{{stylst._id}}"> {{stylst.firstName}} {{stylst.lastname}}</a></li>
-    {{/each}}
-</ul>
+            <h3>Services</h3>
+            <div id="listing">
+                <ul>
+                    {{#each .}}
+                    <li><a href="http://localhost:3000/services/{{services._id}}"> {{services.serviceName}}</a></li>
+                    {{/each}}
+                </ul>
+            </div>
+            <h3>Overall Rating:4.5
+                <h3>
+                    <br>
+                    <br>
+                    <form id="revForm" action="/rev/{{_id}}" method="post">
+                        <input type="submit" value="Get Reviews" />
+                    </form>
+                    <h3>Reviews
+                        <h3>
+
+                            {{#each .}}
+                            <li> Review: {{reviews.review}} Rating:{{reviews.rating}} userId:{{reviews.userId}}
+                            </li>
+                            {{/each}}
+                            <div class="animate form">
+                                <form id="reviewForm" action="/reviews/{{_id}}" method="post">
+                                    <p>
+                                        <label for="stars"><h3>Rating</h3></label>
+                                        <div class="stars">
+                                            <input class="star star-5" name="five" id="star-5" type="radio" name="star" />
+                                            <label class="star star-5" for="star-5"></label>
+                                            <input class="star star-4" name="four" id="star-4" type="radio" name="star" />
+                                            <label class="star star-4" for="star-4"></label>
+                                            <input class="star star-3" name="three" id="star-3" type="radio" name="star" />
+                                            <label class="star star-3" for="star-3"></label>
+                                            <input class="star star-2" name="two" id="star-2" type="radio" name="star" />
+                                            <label class="star star-2" for="star-2"></label>
+                                            <input class="star star-1" name="one" id="star-1" type="radio" name="star" />
+                                            <label class="star star-1" for="star-1"></label>
+                                    </p>
+                                    <label for="review" class="uname"><h3> Write a Review </h3></label>
+                                    <input id="review" name="review" required="required" style="width:500px; height: 150px;"></input>
+                                    <p>
+                                        <input type="submit" value="Submit Review" />
+                                    </p>
+                                </form>
+
+                                </div>
+                            </div>
         </div>
-        <form id="serviceForm" action="/serv/{{_id}}" method="post">
-      <input type="submit" value="Get Services" /> 
-    </form>
-        <h3>Services</h3>
-                <div id="listing">
-        <ul>
-    {{#each .}}
-        <li><a href="http://localhost:3000/services/{{_id}}"> {{serviceName}}</a></li>
-    {{/each}}
-</ul>
-        </div>
-        <h3>Overall Rating:4.5<h3>   
-        <br>
-        <br>
-         <form id="revForm" action="/rev/{{_id}}" method="post">
-      <input type="submit" value="Get Reviews" /> 
-    </form>
-        <h3>Reviews<h3>
-       
-        {{#each .}}
-        <li> Review: {{review}}
-            Rating:{{rating}}
-            userId:{{userId}}
-        </li>
-    {{/each}}
-    <div  class="animate form">
-          <form id="reviewForm" action="/reviews/{{_id}}" method="post">
-                        <p>
-                            <label for="stars"><h3>Rating</h3></label>
-                            <div class="stars">
-                            <input class="star star-5" name="five" id="star-5" type="radio" name="star"/>
-                            <label class="star star-5" for="star-5"></label>
-                            <input class="star star-4" name="four" id="star-4" type="radio" name="star"/>
-                            <label class="star star-4" for="star-4"></label>
-                            <input class="star star-3" name="three" id="star-3" type="radio" name="star"/>
-                            <label class="star star-3" for="star-3"></label>
-                            <input class="star star-2" name="two" id="star-2" type="radio" name="star"/>
-                            <label class="star star-2" for="star-2"></label>
-                            <input class="star star-1" name="one" id="star-1" type="radio" name="star"/>
-                            <label class="star star-1" for="star-1"></label>
-            </p>
-            <label for="review" class="uname"  ><h3> Write a Review </h3></label>
-            <input id="review" name="review" required="required" style="width:500px; height: 150px;"></input>
-            <p> 
-                <input type="submit" value="Submit Review"/> 
-            </p>                
-		</form>
-        
-    	</div>           
-        </div>
+    </div>
 </div>
-        </div>
-        </div>
-        <div id="right">
+<div id="right">
 
-        <table>
+    <table>
         <tr>
-        <td> 
-                    <a target="_blank" href="/public/SalonImages/salon1.jpg">
+            <td>
+                <a target="_blank" href="/public/SalonImages/salon1.jpg">
         <img src="/public/SalonImages/salon1.jpg" alt="salon1">
         </a></td>
-        <td> 
-                    <a target="_blank" href="/public/SalonImages/salon2.jpg">
+            <td>
+                <a target="_blank" href="/public/SalonImages/salon2.jpg">
         <img src="/public/SalonImages/salon2.jpg" alt="salon2">
         </a></td>
-        <td> 
-            <a target="_blank" href="/public/SalonImages/salon3.jpg">
+            <td>
+                <a target="_blank" href="/public/SalonImages/salon3.jpg">
   <img src="/public/SalonImages/salon3.jpg" alt="salon3">
 </a></td>
-</tr>
-<tr>
-<td>
-      <a target="_blank" href="/public/SalonImages/salon4.jpg">
+        </tr>
+        <tr>
+            <td>
+                <a target="_blank" href="/public/SalonImages/salon4.jpg">
       <img src="/public/SalonImages/salon4.jpg" alt="salon4">
 </a>
-</td>
-<td> 
-      <a target="_blank" href="/public/SalonImages/salon5.jpg">
+            </td>
+            <td>
+                <a target="_blank" href="/public/SalonImages/salon5.jpg">
       <img src="/public/SalonImages/salon5.jpg" alt="salon5">
 </a>
-</td>
-<td>
-      <a target="_blank" href="/public/SalonImages/salon6.jpg">
+            </td>
+            <td>
+                <a target="_blank" href="/public/SalonImages/salon6.jpg">
       <img src="/public/SalonImages/salon6.jpg" alt="salon6">
 </a></td>
-</tr>
-</table>
+        </tr>
+    </table>
 </div>
 </div>
-	   

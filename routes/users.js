@@ -14,7 +14,11 @@ router.get("/signup", (req, res) => {
 router.get("/salon/:id", (req, res) => {
     vendorsData.getVendorById(req.params.id).then((vendor) => {
         vendorsData.getAllHairCuttersFromVendorId(vendor._id).then((stylst) => {
-            res.render("pages/salon", {vendor: vendor, stylst: stylst});
+            vendorsData.getAllServicesFromVendorId(vendor._id).then((services) => {
+                vendorsData.getAllReviewsFromVendorId(vendor._id).then((reviews) => {
+                    res.render("pages/salon", { vendor: vendor, stylst: stylst, services: services, reviews: reviews });
+                })
+            })
         })
     }).catch(() => {
         res.status(404).json({ error: "Salon not found" });
