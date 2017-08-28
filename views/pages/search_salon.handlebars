@@ -1,9 +1,12 @@
-
+<!DOCTYPE html>
+   <head>
+       <title>Services </title>
+   </head>
     <div id="search" class="animate form" style="margin:auto;">
         <div id="boxes">
             <form id="searchForm" action="/search" method="post">
 
-    <label for="search"><h3>Search Salon By Saloon Name, State, City, ZipCode</h3></label>
+    <h1>Search Salon By Saloon Name, State, City, ZipCode</h1>
     <input id="searchText" name="searchText" type="text" placeholder="search"/>   
 
               
@@ -11,11 +14,11 @@
     <input type="submit" value="SEARCH" /> 
     </form>
     </div>
-<ul>
+
     {{#each .}}
-        <li><a href="http://localhost:3000/salon/{{_id}}"> {{saloonName}}</a></li>
+       <a href="http://localhost:3000/salon/{{_id}}"> {{saloonName}}</a>
     {{/each}}
-</ul>
+
     </div>
    
 
