@@ -16,8 +16,7 @@ router.get("/:id", (req, res) => {
 
 router.post("/", (req, res) => {
     let serviceBody = req.body;
-
-    serviceData.addService(serviceBody.vendorId, serviceBody.service,
+    serviceData.addService(serviceBody.vendorId, serviceBody.serviceName,
      serviceBody.description, serviceBody.cost)
         .then((newServive) => {
             res.redirect('/vendors/' + newServive.vendorId);

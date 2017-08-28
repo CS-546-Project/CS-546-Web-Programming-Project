@@ -14,10 +14,10 @@ const hairCuttersData = data.hairCutters;
 router.get("/:id", (req, res) => {
     hairCuttersData.gethairCutterById(req.params.id).then((hairCutters) => {
         hairCuttersData.getAllReviewsFromhairCutterId(req.params.id).then((reviews) => {
-        res.render("pages/stylists",hairCutters,reviews);
+            res.render("pages/stylists", hairCutters, reviews);
         }).catch(() => {
-        res.status(404).json({ error: "Salon not found" });
-    });
+            res.status(404).json({ error: "Salon not found" });
+        });
     })
 });
 
@@ -28,7 +28,7 @@ router.post("/", (req, res) => {
     hairCuttersData.addhairCutter(hairCutterBody.vendorId, hairCutterBody.firstName, hairCutterBody.lastName,
         hairCutterBody.heading, hairCutterBody.image, hairCutterBody.description)
         .then((newHairCutter) => {
-            res.json(newHairCutter);
+            res.redirect('/vendors/' + newHairCutter.vendorId);
         }).catch((e) => {
             res.status(500).json({ error: e });
         });
@@ -47,7 +47,7 @@ router.put("/:id", (req, res) => {
                 res.status(500).json({ error: e });
             });
     }).catch((e) => {
-      //  console.log(e);
+        //  console.log(e);
         res.status(404).json({ error: "Hair Cutter not found" });
     });
 

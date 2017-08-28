@@ -39,8 +39,13 @@ router.post('/vendors/upload', function (req, res) {
 });
 router.get("/:id", (req, res) => {
     vendorsData.getVendorById(req.params.id).then((vendor) => {
-        console.log(vendor);
-        res.render("pages/owner", vendor);
+        vendorsData.getAllHairCuttersFromVendorId(vendor._id).then((stylst) => {
+            vendorsData.getAllServicesFromVendorId(vendor._id).then((services) => {
+                vendorsData.getAllReviewsFromVendorId(vendor._id).then((reviews) => {
+                    res.render("pages/owner", { vendor: vendor, stylst: stylst, services: services, reviews: reviews });
+                })
+            })
+        })
     }).catch(() => {
         res.status(404).json({ error: "Vendor not found" });
     });
