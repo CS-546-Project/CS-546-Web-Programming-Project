@@ -2,13 +2,18 @@ const express = require('express');
 const router = express.Router();
 const data = require("../data");
 const usersData = data.users;
-const vendorsData=data.vendors; 
+const vendorsData = data.vendors;
+
+router.get("/", (req, res) => {
+    res.render("pages/search_salon", {});
+});
+
 router.get("/signup", (req, res) => {
     res.render("pages/CustSignUp", {});
 });
 router.get("/salon/:id", (req, res) => {
     vendorsData.getVendorById(req.params.id).then((vendor) => {
-        res.render("pages/salon",vendor);
+        res.render("pages/salon", vendor);
     }).catch(() => {
         res.status(404).json({ error: "Salon not found" });
     });
@@ -19,14 +24,14 @@ router.post("/search", (req, res) => {
     console.log(vendorBody.searchText);
     vendorsData.getVendorsBySearch(vendorBody.searchText)
         .then((newVendor) => {
-            res.render("pages/search_salon",newVendor);
+            res.render("pages/search_salon", newVendor);
         }).catch((e) => {
             res.status(500).json({ error: e });
         });
 });
 router.get("/:id", (req, res) => {
     usersData.getUserById(req.params.id).then((user) => {
-        res.render("pages/search_salon",user);
+        res.render("pages/search_salon", user);
     }).catch(() => {
         res.status(404).json({ error: "User not found" });
     });

@@ -102,9 +102,9 @@ let exportedMethods = {
 }
 module.exports = exportedMethods;
 
-exportedMethods.addUser("Harsh", "Kevadia", "3158 John F Kennedy Blvd", "502-294-8180", "NJ", "Jersey City", "07306", "hkevadia@stevens.edu", "Harsh7894").then((data) => {
+/* exportedMethods.addUser("Harsh", "Kevadia", "3158 John F Kennedy Blvd", "502-294-8180", "NJ", "Jersey City", "07306", "hkevadia@stevens.edu", "Harsh7894").then((data) => {
     console.log(data);
-}); 
+});  */
 
 /* exportedMethods.removeUser('b116019d-314d-4519-9a45-16dc0bac74e2').then(() => {
     console.log("Removed");
