@@ -10,12 +10,12 @@ The project can be found on github at https://github.com/CS-546-Project/Saloon-P
 
 ### Prerequisites
 
-You need to have Node js and Mongodb on your local machine.
+You need to have Node js and Mongodb installed on your local machine.
 
 ### Installing
 
 Once the project is downloaded you have to delete the node modules folder
-Then install all the dependencies mentioned in the package.json
+Then install all the dependencies mentioned in the package.json on the terminal
     "bcrypt": "^1.0.2",
     "body-parser": "^1.17.2",
     "connect-ensure-login": "^0.1.1",
