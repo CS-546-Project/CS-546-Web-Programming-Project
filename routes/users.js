@@ -5,7 +5,7 @@ const data = require("../data");
 const usersData = data.users;
 const vendorsData = data.vendors;
 
--router.get("/", (req, res) => {
+router.get("/", (req, res) => {
     res.render("pages/search_salon", {});
 });
 

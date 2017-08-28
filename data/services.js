@@ -111,7 +111,7 @@ let exportedMethods = {
         if (!serviceId)
             return Promise.reject("You must provide an ID");
         return services().then((servicesCollection) => {
-            return servicesCollection.find({ _id: serviceId }).then((data) => {
+            return servicesCollection.findOne({ _id: serviceId }).then((data) => {
                 if (data === 'undefined')
                     throw "HairCutter not found !";
                 let servicesdata = data.reviews;
@@ -119,6 +119,8 @@ let exportedMethods = {
             });
         });
     },
+
+    
 }
 module.exports = exportedMethods;
 

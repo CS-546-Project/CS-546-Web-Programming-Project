@@ -3,13 +3,25 @@ const router = express.Router();
 const data = require("../data");
 const hairCuttersData = data.hairCutters;
 
+// router.get("/:id", (req, res) => {
+//     hairCuttersData.gethairCutterById(req.params.id).then((hairCutters) => {
+//         res.render("pages/stylists",hairCutters);
+//     }).catch(() => {
+//         res.status(404).json({ error: "Hair Cutter not found" });
+//     });
+// });
+
 router.get("/:id", (req, res) => {
     hairCuttersData.gethairCutterById(req.params.id).then((hairCutters) => {
-        res.render("pages/stylists",hairCutters);
-    }).catch(() => {
-        res.status(404).json({ error: "Hair Cutter not found" });
+        hairCuttersData.getAllReviewsFromhairCutterId(req.params.id).then((reviews) => {
+        res.render("pages/stylists",hairCutters,reviews);
+        }).catch(() => {
+        res.status(404).json({ error: "Salon not found" });
     });
+    })
 });
+
+
 router.post("/", (req, res) => {
     let hairCutterBody = req.body;
 

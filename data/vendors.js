@@ -198,6 +198,7 @@ let exportedMethods = {
             });
         });
     },
+    
 
     getAllHairCuttersFromVendorId(id) {
         if (id === undefined)
@@ -237,6 +238,7 @@ let exportedMethods = {
             });
         });
     },
+    
     addReviews(vendorId, userId, rating, review) {
         return vendors().then((vendorsCollection) => {
             reviewId = uuid()

@@ -283,10 +283,10 @@ p{
     font-size: 30px;
 }
 
-#results h4{
+   #stylist h4{
     color: white;
-    text-align: center;
-    font-size: 20px;
+    text-align: left;
+    font-size: 15px;
 }
 
 #results li ul{
