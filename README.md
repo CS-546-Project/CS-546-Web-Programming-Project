@@ -1,7 +1,7 @@
 # Saloon Portal
 
-Our project is called Salon Portal. This will be like Seamless but
-this will help customers find the most suitable salon instead of restaurants and salon owners
+Our project is called Salon Portal. This will is similar to Seamless but
+this will help customers find the most suitable salon instead of restaurants. Through Salon Portal, salon owners
 can create visibility for their salon.
 
 ## Getting Started
