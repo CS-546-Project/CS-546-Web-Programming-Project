@@ -203,11 +203,7 @@ let exportedMethods = {
         if (id === undefined)
             return Promise.reject("You must provide an ID");
         return hairCutters().then((hairCuttersCollection) => {
-            return hairCuttersCollection.findOne({ vendorId: id }).then((data) => {
-                if (data === 'undefined')
-                    throw "HairCutter not found from VendorID!";
-                return data;
-            });
+            return hairCuttersCollection.find({ vendorId: id }).toArray();
         });
     },
 
@@ -215,11 +211,7 @@ let exportedMethods = {
         if (id === undefined)
             return Promise.reject("You must provide an ID");
         return services().then((servicesCollection) => {
-            return servicesCollection.findOne({ vendorId: id }).then((servicedata) => {
-                if (servicedata === 'undefined')
-                    throw "Service not found from VendorID!";
-                return servicedata;
-            });
+            return servicesCollection.find({ vendorId: id }).toArray();
         });
     },
     getReviewsFromReviewId(reviewId) {
