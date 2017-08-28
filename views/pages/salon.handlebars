@@ -33,14 +33,10 @@
 
                             {{#each reviews}}
                             <li> Review: {{this.review}}  </li>
-                           
-                            <li>Rating: {{this.rating}} </li>
                             <li>User ID: {{this.userId}}</li>
-                            {{/each}}
-                            <div class="animate form">
-                                <form id="reviewForm" action="/reviews/{{_id}}" method="post">
-                                    <p>
-                                        <label for="stars"><h3>Rating</h3></label>
+                            <li>Rating: {{this.rating}} </li>
+                           
+                                   
                                         <div class="stars">
                                             <input class="star star-5" name="five" id="star-5" type="radio" name="star" />
                                             <label class="star star-5" for="star-5"></label>
@@ -52,14 +48,13 @@
                                             <label class="star star-2" for="star-2"></label>
                                             <input class="star star-1" name="one" id="star-1" type="radio" name="star" />
                                             <label class="star star-1" for="star-1"></label>
-                                    </p>
-                                    <label for="review" class="uname"><h3> Write a Review </h3></label>
-                                    <input id="review" name="review" required="required" style="width:500px; height: 50px;"></input>
-                                    <p>
-                                        <div class="boxes">
-                                    <input type="submit" value="Submit Review" />
-                                    </div>
-                                    </p>
+                                   
+                                   
+                           
+                            {{/each}}
+                            <div class="animate form">
+                                <form id="reviewForm" action="/reviews/{{_id}}" method="post">
+                                    
                                 </form>
 
                                 </div>
