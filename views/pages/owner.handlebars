@@ -1,5 +1,5 @@
 
-    <div id="container">
+   <div id="container">
         <div id="left">
     <div id="salon" class="animate form">
         <h3>Name: Owner's Name</h3>  
@@ -20,11 +20,16 @@
         </ul>
         </div>
                        <div id="boxes" class="animate form">
-        <form id="serviceForm" action="/services/" method="post" autocomplete="on"> 
+        <form id="stylistForm" action="/services/" method="post" autocomplete="on"> 
                         
             <p> 
-            <input id="service" col="50" row="5" placeholder="Add stylist"></input> 
-            <input id="charge" col="50" row="5" placeholder="speciality" style="width:20%"></input> 
+            <input id="firstName" name="firstName" col="30" row="5" placeholder="First Name"></input> 
+            <input id="lastName" name="lastName" col="30" row="5" placeholder="Last Name" style="width:20%"></input> 
+            <input id="rating" name="rating" col="30" row="5" placeholder="rating"></input> 
+                        <input id="image" name="image" col="30" row="5" placeholder="image"></input> 
+
+            <input id="description" name="description" col="30" row="5" placeholder="description" style="width:20%"></input> 
+           
             <input type="submit" value="Add" style="width:10%"/> 
             </p>                
 		</form>
@@ -41,8 +46,10 @@
         <form  action="" autocomplete="on"> 
                         
             <p> 
-            <input id="service" col="50" row="5" placeholder="Add service"></input> 
-            <input id="charge" col="50" row="5" placeholder="charges"style="width:20%"></input> 
+            <input id="serviceName" name="serviceName" col="50" row="5" placeholder="Service Name"style="width:20%"></input> 
+             <input id="description" name="description" col="50" row="5" placeholder="description"></input> 
+            <input id="cost" col="50" row="5" name="cost" placeholder="charges"style="width:20%"></input> 
+       
             <input type="submit" value="Add" style="width:10%"/> 
             </p>                
         </form>
