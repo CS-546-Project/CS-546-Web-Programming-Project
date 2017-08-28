@@ -95,7 +95,7 @@ let exportedMethods = {
             });
         });
     },
-<<<<<<< HEAD
+
     getReviewsFromReviewId(reviewId) {
         if (!reviewId) 
             return Promise.reject("You must provide an ReviewID");
@@ -283,13 +283,13 @@ let exportedMethods = {
             });
         });
     },
-=======
+
     getVendorsBySearch(searchText) {
         return vendors().then((vendorsCollection) => {
             return vendorsCollection.find({ $or: [{ "saloonName": { '$regex': searchText, '$options': 'i' } }, { "state": { '$regex': searchText, '$options': 'i' } }, { "city": { '$regex': searchText, '$options': 'i' } }, { "zipCode": searchText }] }).toArray();
         });
     }
->>>>>>> 0cf656d209a830761cbc8ddca4985e71c86990cb
+
 }
 module.exports = exportedMethods;
 
