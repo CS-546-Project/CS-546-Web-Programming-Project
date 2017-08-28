@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-   <head>
-       <title>Home Page </title>
-   </head>
+
+<head>
+    <title>Home Page </title>
+</head>
 <div id="container">
     <div>
         <div id="salon" class="animate form">
@@ -16,11 +17,11 @@
             <p>10 a.m to 7 p.m.</p>
             <h3>Stylists</h3>
             <div>
-                
-                    {{#each stylst}}
-                <p>  <a href="http://localhost:3000/hairCutters/{{this._id}}"> {{this.firstName}} {{this.lastName}}</a></p>
-                    {{/each}}
-               
+
+                {{#each stylst}}
+                <p> <a href="http://localhost:3000/hairCutters/{{this._id}}"> {{this.firstName}} {{this.lastName}}</a></p>
+                {{/each}}
+
             </div>
             <div id="boxes1" class="animate form">
                 <form id="stylistForm" action="/hairCutters/" method="post" autocomplete="on">
@@ -38,11 +39,11 @@
             </div>
             <h3>Services</h3>
             <div>
-               
-                    {{#each services}}
-                <p>  <a href="http://localhost:3000/services/{{this._id}}"> {{this.serviceName}}</a></p>
-                    {{/each}}
-                
+
+                {{#each services}}
+                <p> <a href="http://localhost:3000/services/{{this._id}}"> {{this.serviceName}}</a></p>
+                {{/each}}
+
             </div>
             <div id="boxes2" class="animate form">
                 <form id="serviceForm" action="/services/" method="post" autocomplete="on">
@@ -56,7 +57,7 @@
                     </p>
                 </form>
             </div>
-           
+
         </div>
         <div>
 
