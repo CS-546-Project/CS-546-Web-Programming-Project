@@ -3,7 +3,7 @@
         <div id="left">
     <div id="salon" class="animate form">
 
-        <h2>{{saloonName}}</h2>
+        <h2>{{vendor.saloonName}}</h2>
         <p>Scissors and Razors Salon is located in Hoboken, NJ. The salon offers services
             like hairdressing, hair extension and nail art. Other services include shampooing, conditioning
             and blow drying and are also expert in hair coloring and styling.</p>
@@ -18,7 +18,7 @@
                 <div id="listing">
         <ul>
     {{#each .}}
-        <li><a href="http://localhost:3000/hairCutters/{{_id}}"> {{firstName}} {{lastname}}</a></li>
+        <li><a href="http://localhost:3000/hairCutters/{{stylst._id}}"> {{stylst.firstName}} {{stylst.lastname}}</a></li>
     {{/each}}
 </ul>
         </div>
