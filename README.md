@@ -32,14 +32,6 @@ Then install all the dependencies mentioned in the package.json on the terminal
     "passport-local": "^1.0.0",
     "uuid": "^3.1.0"
 
-## Running the tests
-
-//Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-//Explain what these tests test and why
-
 ### And coding style tests
 
 We ran all the HTML code against a validator and fixed all the errors
@@ -47,20 +39,6 @@ We ran all the HTML code against a validator and fixed all the errors
 ## Deployment
 
 The Mongodb has to be started and then on running "npm start" the server starts running
-
-## Built With
-
-// [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-//[Maven](https://maven.apache.org/) - Dependency Management
-// [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-//Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the //process for submitting pull requests to us.
-
-## Versioning
-
-//We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
