@@ -1,30 +1,22 @@
 
     <div id="search" class="animate form" style="margin:auto;">
-    <p>
         <div id="boxes">
             <form id="searchForm" action="/search" method="post">
+<<<<<<< HEAD
     <label for="search"><h3>Search Salon By Saloon Name, State, City, ZipCode</h3></label>
     <input id="searchText" name="searchText" type="text" placeholder="search"/>   
+=======
+            <h3>Search Salon</h3>
+   <input id="searchText" name="searchText" type="text" placeholder="Salon Name"/>   
+>>>>>>> 1d2536e38f3a019c7e332f7fcf3ec67574cb96cb
     <input type="submit" value="SEARCH" /> 
     </form>
     </div>
-    </p>       
 <ul>
     {{#each .}}
         <li><a href="http://localhost:3000/salon/{{_id}}"> {{saloonName}}</a></li>
     {{/each}}
 </ul>
     </div>
-    </p>       
-</div>
-    <h3>Suggested Salons</h3>
-    <div id="hints">
-    <p>
-        <ul>
-            <li>Scisors and Razors</li>
-            <li>Under the Dryer</li>
-            <li>Color Me Crazy</li>
-        </ul>
-    </p>
-    </div>
+   
 

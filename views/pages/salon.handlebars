@@ -18,7 +18,7 @@
             </div>
 
             <h3>Services</h3>
-            <div id="listing">
+            <div id="listing1">
                 <ul>
                     {{#each services}}
                     <li><a href="http://localhost:3000/services/{{this._id}}"> {{this.serviceName}}</a></li>
@@ -26,27 +26,25 @@
                 </ul>
             </div>
             
-                <h3>
                   
-                    <h3>Reviews
-                        <h4>
-
+                    <h3>Reviews</h3>
+<ul>
                             {{#each reviews}}
                             <li> Review: {{this.review}}  </li>
                             {{!--<li>User ID: {{this.userId}}</li>--}}
                             <li>Rating: {{this.rating}} </li>
-                           
+</ul>
                                    
                                         <div class="stars">
-                                            <input class="star star-5" name="five" id="star-5" type="radio" name="star" />
+                                            <input class="star star-5" name="five" id="star-5" type="radio" />
                                             <label class="star star-5" for="star-5"></label>
-                                            <input class="star star-4" name="four" id="star-4" type="radio" name="star" />
+                                            <input class="star star-4" name="four" id="star-4" type="radio" />
                                             <label class="star star-4" for="star-4"></label>
-                                            <input class="star star-3" name="three" id="star-3" type="radio" name="star" />
+                                            <input class="star star-3" name="three" id="star-3" type="radio"  />
                                             <label class="star star-3" for="star-3"></label>
-                                            <input class="star star-2" name="two" id="star-2" type="radio" name="star" />
+                                            <input class="star star-2" name="two" id="star-2" type="radio" />
                                             <label class="star star-2" for="star-2"></label>
-                                            <input class="star star-1" name="one" id="star-1" type="radio" name="star" />
+                                            <input class="star star-1" name="one" id="star-1" type="radio" />
                                             <label class="star star-1" for="star-1"></label>
                                    
                                    
@@ -59,7 +57,6 @@
 
                                 </div>
                             </div>
-        </div>
     </div>
 </div>
 {{!<div id="right">
@@ -97,4 +94,3 @@
         </tr>
     </table>
 </div>}}
-</div>
