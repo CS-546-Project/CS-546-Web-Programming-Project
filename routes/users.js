@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router = express.Router();
 const data = require("../data");
 const usersData = data.users;
@@ -110,12 +111,12 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.post("/", (req, res) => {
+router.post("/signup", (req, res) => {
     let userBody = req.body;
     usersData.addUser(userBody.firstName, userBody.lastName, userBody.address, userBody.contactNumber,
         userBody.state, userBody.city, userBody.zipCode, userBody.email, userBody.password)
         .then((newUser) => {
-            res.json(newUser);
+            res.redirect('/' + newUser._id);
         }).catch((e) => {
             res.status(500).json({ error: e });
         });
