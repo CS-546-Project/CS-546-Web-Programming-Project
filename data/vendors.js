@@ -326,10 +326,10 @@ module.exports = exportedMethods;
 // exportedMethods.addReviews("2df1e667-fe7a-4076-8aeb-5f4abb83e8ee", "2cac8312-16f0-4504-9755-6e702709fd00", "5", "It is TOO good").then((data) => {
 //     console.log(data);
 // });
-
+/* 
 exportedMethods.addReviews("7f111dc0-19da-4dfe-8346-d41ad021cffc", "c925049f-098e-4b00-8543-15c46e7617b6", "7", "It is extremely good").then((data) => {
     console.log(data);
-});
+}); */
 
 // exportedMethods.getAllReviewsFromVendorId("626e9c5f-8792-484f-83d5-b05098661e77").then((data) => {
 //     console.log(data);
@@ -409,3 +409,8 @@ exportedMethods.updateVendorInfo('0b8bbd98-3981-47fa-bd2b-2b57f29054cb', data).t
 /* exportedMethods.getVendorByEmail("rsutariy@stevens.edu").then((data) => {
     console.log(data);
 }); */
+
+
+/* exportedMethods.getAllHairCuttersFromVendorId("7f111dc0-19da-4dfe-8346-d41ad021cffc").then((data) => {
+    console.log(data);
+}) */
