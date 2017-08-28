@@ -127,9 +127,9 @@ module.exports = exportedMethods;
 // });
 
 
-exportedMethods.addReviews("b3966cae-f559-4d57-9ea1-04177603f065", "c925049f-098e-4b00-8543-15c46e7617b6", "5", "It is TOO good").then((data) => {
-    console.log(data);
-});
+// exportedMethods.addReviews("b3966cae-f559-4d57-9ea1-04177603f065", "c925049f-098e-4b00-8543-15c46e7617b6", "5", "It is TOO good").then((data) => {
+//     console.log(data);
+// });
 
 
 
