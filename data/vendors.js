@@ -94,23 +94,30 @@ let exportedMethods = {
                 });
             });
         });
+    },
+    getVendorsBySearch(searchText) {
+        return vendors().then((vendorsCollection) => {
+            return vendorsCollection.find({ $or: [{ "saloonName": { '$regex': searchText, '$options': 'i' } }, { "state": { '$regex': searchText, '$options': 'i' } }, { "city": { '$regex': searchText, '$options': 'i' } }, { "zipCode": searchText }] }).toArray();
+        });
     }
-
 }
 module.exports = exportedMethods;
 
-
+/* exportedMethods.getVendorsBySearch("alon").then((data) => {
+    console.log(JSON.stringify(data));
+})
+ */
 /*exportedMethods.addReviews("24a95bf7-5a6e-4f98-8b25-240aa2184e30", "6392404c-7603-432d-8cb6-a2b496e02873", "5", "It is TOO good").then((data) => {
     console.log(data);
 });
 */
- /*let updateddata = {
-    rating: "6",
-    reviews: "two",
-    userId: "1234",
- }
+/*let updateddata = {
+   rating: "6",
+   reviews: "two",
+   userId: "1234",
+}
 exportedMethods.updateReviews("24a95bf7-5a6e-4f98-8b25-240aa2184e30", "9c74f2bb-3529-4c1d-b0a4-4db1d38e935a",updateddata).then((data) => {
-    console.log(data);
+   console.log(data);
 });
 */
 
