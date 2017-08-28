@@ -146,36 +146,4 @@ exportedMethods.addhairCutter("7f111dc0-19da-4dfe-8346-d41ad021cffc","Jai","Pate
 // });
 
 
-//----------------Dummy Data---------------------------------------------------
-/*exportedMethods.addReviews("c9d68e16-06f3-40e6-a0da-83cf85d56bf6", "455a942a-edaf-4b76-96a6-3491425a020a", "5", "It is TOO good").then((data) => {
-    console.log(data);
-});   
-*/
-/*exportedMethods.getReviewsFromReviewId("f60df383-d0a1-4332-9136-e3810f3f2f98").then((data) => {
-    console.log(data);
-}); 
-*/
-/*exportedMethods.getAllReviewsFromHairCutterId("c9d68e16-06f3-40e6-a0da-83cf85d56bf6").then((data) => {
-    console.log(data);
-}); 
-*/
 
-/*exportedMethods.removehairCutter('a8e5b375-a838-4dfd-8af8-f488dfecc089').then(() => {
-    console.log("Removed");
-});
-/*exportedMethods.gethairCutterById('2f975e76-b30d-4311-9561-993f56751a93').then((data) => {
-    console.log(data);
-});*/
-
- /*let data = {
-                vendorId:"0b8bbd98-3981-47fa-bd2b-2b57f29054cb",
-                firstName:"Ruchi",
-                lastName: "Sutariya1",
-                heading:"heading1",
-                image: "image1",
-                description: "description1"
-   
-};
-exportedMethods.updatehairCutterInfo('2f975e76-b30d-4311-9561-993f56751a93', data).then((data) => {
-    console.log(data);
-}) */
