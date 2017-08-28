@@ -51,6 +51,7 @@ router.post("/", (req, res) => {
         });
 });
 
+
 router.put("/:id", (req, res) => {
     let updatedData = req.body;
     let getVendor = vendorsData.getVendorById(req.params.id);
