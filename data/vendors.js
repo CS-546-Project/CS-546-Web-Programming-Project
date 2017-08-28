@@ -319,6 +319,42 @@ let exportedMethods = {
 }
 module.exports = exportedMethods;
 
+// exportedMethods.addVendor("SalonX", "3588 John F Kennedy Blvd", "501-990-0091", "NJ", "Jersey City", "07307", "salonx@salon.com", "salonx").then((data) => {
+//     console.log(data);
+// });  
+
+// exportedMethods.addVendor("SalonY", "3588 John F Kennedy Blvd", "200-900-8800", "NJ", "Hoboken", "07307", "salony@salon.com", "salony").then((data) => {
+//     console.log(data);
+// }); 
+
+// exportedMethods.addVendor("SalonZ", "3588 John F Kennedy Blvd", "200-900-8891", "NJ", "Secaucus", "07307", "salonz@salon.com", "salonz").then((data) => {
+//     console.log(data);
+// }); 
+
+// exportedMethods.addReviews("2df1e667-fe7a-4076-8aeb-5f4abb83e8ee", "2cac8312-16f0-4504-9755-6e702709fd00", "5", "It is TOO good").then((data) => {
+//     console.log(data);
+// });
+
+exportedMethods.addReviews("7f111dc0-19da-4dfe-8346-d41ad021cffc", "c925049f-098e-4b00-8543-15c46e7617b6", "7", "It is extremely good").then((data) => {
+    console.log(data);
+});
+
+// exportedMethods.getAllReviewsFromVendorId("626e9c5f-8792-484f-83d5-b05098661e77").then((data) => {
+//     console.log(data);
+// }); 
+/*
+exportedMethods.getAllServicesFromVendorId("626e9c5f-8792-484f-83d5-b05098661e77").then((data) => {
+    console.log(data);
+}); 
+*/
+// exportedMethods.getAllHairCuttersFromVendorId("626e9c5f-8792-484f-83d5-b05098661e77").then((data) => {
+//     console.log(data);
+// }); 
+
+
+
+
+//-----------------------------Dummy Data----------------------------------------------
 /* exportedMethods.getVendorsBySearch("alon").then((data) => {
     console.log(JSON.stringify(data));
 })
@@ -341,11 +377,11 @@ exportedMethods.updateReviews("24a95bf7-5a6e-4f98-8b25-240aa2184e30", "9c74f2bb-
     console.log("Removed");
 }); 
 */
-/* exportedMethods.getAllServicesFromVendorId("0b8bbd98-3981-47fa-bd2b-2b57f29054cb").then((data) => {
+/*exportedMethods.getAllServicesFromVendorId("0b8bbd98-3981-47fa-bd2b-2b57f29054cb").then((data) => {
     console.log(data);
-}); */
+}); 
 
-/*exportedMethods.getAllHairCuttersFromVendorId("0b8bbd98-3981-47fa-bd2b-2b57f29054cb").then((data) => {
+exportedMethods.getAllHairCuttersFromVendorId("0b8bbd98-3981-47fa-bd2b-2b57f29054cb").then((data) => {
     console.log(data);
 }); 
 
@@ -359,10 +395,8 @@ exportedMethods.updateReviews("24a95bf7-5a6e-4f98-8b25-240aa2184e30", "9c74f2bb-
     console.log(data);
 }); 
 
+*/
 
-/*exportedMethods.addVendor("SalonX", "3588 John F Kennedy Blvd", "201-993-8891", "NJ", "Jersey City", "07307", "rsutariy@stevens.edu", "ruchika123").then((data) => {
-    console.log(data);
-});  
 
 /*exportedMethods.removeVendor('62f794c8-b6cf-4bb7-be3a-a5283ac37ffc').then(() => {
     console.log("Removed");

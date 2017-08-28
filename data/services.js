@@ -122,17 +122,27 @@ let exportedMethods = {
 }
 module.exports = exportedMethods;
 
+// exportedMethods.addService("7f111dc0-19da-4dfe-8346-d41ad021cffc", "Children's Cut", "Suitable for guests 12 years and under.","50$").then((data) => {
+//     console.log(data);
+// });
+
+
+exportedMethods.addReviews("b3966cae-f559-4d57-9ea1-04177603f065", "c925049f-098e-4b00-8543-15c46e7617b6", "5", "It is TOO good").then((data) => {
+    console.log(data);
+});
+
+
+
+//---------------------------------Dummy Data ----------------------------------------------------------------
 /*exportedMethods.addReviews("58a325ed-e075-411b-8383-22c36391b5e1", "455a942a-edaf-4b76-96a6-3491425a020a", "5", "It is TOO good").then((data) => {
     console.log(data);
 });
 */
-exportedMethods.getAllReviewsFromServiceId("58a325ed-e075-411b-8383-22c36391b5e1").then((data) => {
+/*exportedMethods.getAllReviewsFromServiceId("58a325ed-e075-411b-8383-22c36391b5e1").then((data) => {
     console.log(data);
 });
 
-/*exportedMethods.addService("0b8bbd98-3981-47fa-bd2b-2b57f29054cb", "servicename", "description","cost").then((data) => {
-    console.log(data);
-});
+*/
 
 /*exportedMethods.removeService('9a3b26bc-8a9f-4d26-bb71-952fef65350d').then(() => {
     console.log("Removed");

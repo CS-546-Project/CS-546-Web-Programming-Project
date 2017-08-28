@@ -133,6 +133,20 @@ let exportedMethods = {
 }
 module.exports = exportedMethods;
 
+
+
+
+// exportedMethods.addhairCutter("626e9c5f-8792-484f-83d5-b05098661e77","Jai","Patel", "Hair Stylist", "stylist2.jpeg", "I have been working in a salon since I was 17. After a few years of shampooing and assisting many talented stylists, I decided that I wanted to be the one behind the chair. I started beauty school and while there I attended as many extra classes as I could.").then((data) => {
+//     console.log(data);
+// });
+
+
+// exportedMethods.addReviews("94614a92-8543-472b-8cf1-21225ce98fa9", "c925049f-098e-4b00-8543-15c46e7617b6", "5", "It is TOO good").then((data) => {
+//     console.log(data);
+// });
+
+
+//----------------Dummy Data---------------------------------------------------
 /*exportedMethods.addReviews("c9d68e16-06f3-40e6-a0da-83cf85d56bf6", "455a942a-edaf-4b76-96a6-3491425a020a", "5", "It is TOO good").then((data) => {
     console.log(data);
 });   
@@ -144,12 +158,11 @@ module.exports = exportedMethods;
 /*exportedMethods.getAllReviewsFromHairCutterId("c9d68e16-06f3-40e6-a0da-83cf85d56bf6").then((data) => {
     console.log(data);
 }); 
-/*exportedMethods.addhairCutter("0b8bbd98-3981-47fa-bd2b-2b57f29054cb","Ruchika","Sutariya", "heading", "image", "description").then((data) => {
-    console.log(data);
-});/*
-exportedMethods.removehairCutter('a8e5b375-a838-4dfd-8af8-f488dfecc089').then(() => {
+*/
+
+/*exportedMethods.removehairCutter('a8e5b375-a838-4dfd-8af8-f488dfecc089').then(() => {
     console.log("Removed");
-});*/
+});
 /*exportedMethods.gethairCutterById('2f975e76-b30d-4311-9561-993f56751a93').then((data) => {
     console.log(data);
 });*/
