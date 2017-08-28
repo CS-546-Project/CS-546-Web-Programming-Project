@@ -18,14 +18,14 @@ let exportedMethods = {
             });
         });
     },
-    addhairCutter(vendorId,firstName, lastName, heading, image, description) {
+    addhairCutter(vendorId, firstName, lastName, heading, image, description) {
         return hairCutters().then((hairCuttersCollection) => {
             let newhairCutter = {
                 _id: uuid(),
                 vendorId: vendorId,
-                firstName:firstName,
+                firstName: firstName,
                 lastName: lastName,
-                heading:heading,
+                heading: heading,
                 image: image,
                 description: description
             };
@@ -79,7 +79,7 @@ let exportedMethods = {
             });
         });
     },
-     getReviewsFromReviewId(reviewId) {
+    getReviewsFromReviewId(reviewId) {
         if (!reviewId)
             return Promise.reject("You must provide an ReviewID");
         return hairCutters().then((hairCuttersCollection) => {
@@ -91,16 +91,16 @@ let exportedMethods = {
                 })[0];
                 hairCutterdata._id = data._id;
                 hairCutterdata.vendorId = data.vendorId,
-                hairCutterdata.firstName = data.firstName,
-                hairCutterdata.lastName = data.lastName,
-                hairCutterdata.heading = data.heading,
-                hairCutterdata.image = data.image,
-                hairCutterdata.description = data.description
+                    hairCutterdata.firstName = data.firstName,
+                    hairCutterdata.lastName = data.lastName,
+                    hairCutterdata.heading = data.heading,
+                    hairCutterdata.image = data.image,
+                    hairCutterdata.description = data.description
                 return hairCutterdata;
             });
         });
     },
-    addReviews(hairCutterId,userId,rating, reviews) {
+    addReviews(hairCutterId, userId, rating, reviews) {
         return hairCutters().then((hairCutterCollection) => {
             reviewId = uuid();
             let addReviews = {
@@ -109,7 +109,7 @@ let exportedMethods = {
                 rating: rating,
                 reviews: reviews
             };
-            return hairCutterCollection.updateOne({_id: hairCutterId }, { $push: { "reviews": addReviews } }).then(function () {
+            return hairCutterCollection.updateOne({ _id: hairCutterId }, { $push: { "reviews": addReviews } }).then(function () {
                 return exportedMethods.getReviewsFromReviewId(reviewId).then((data) => {
                     return data;
                 }, (err) => {
@@ -119,14 +119,14 @@ let exportedMethods = {
         });
     },
     getAllReviewsFromHairCutterId(hairCutterId) {
-        if (!hairCutterId) 
+        if (!hairCutterId)
             return Promise.reject("You must provide an ID");
         return hairCutters().then((hairCuttersCollection) => {
             return hairCuttersCollection.findOne({ _id: hairCutterId }).then((data) => {
-                if (data === 'undefined') 
+                if (data === 'undefined')
                     throw "HairCutter not found !";
-                    let hairCutterdata = data.reviews;
-                    return hairCutterdata;
+                let hairCutterdata = data.reviews;
+                return hairCutterdata;
             });
         });
     },

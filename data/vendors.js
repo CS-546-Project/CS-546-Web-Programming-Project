@@ -99,25 +99,25 @@ let exportedMethods = {
     },
 
     getReviewsFromReviewId(reviewId) {
-        if (!reviewId) 
+        if (!reviewId)
             return Promise.reject("You must provide an ReviewID");
         return vendors().then((vendorsCollection) => {
             return vendorsCollection.findOne({ $where: "this.reviews._id = '" + reviewId + "'" }).then((data) => {
                 console.log(data);
-                 if (!data)
-                   throw "Reviews not Found !";
+                if (!data)
+                    throw "Reviews not Found !";
                 let vendordata = data.reviews.filter(function (reviews) {
-                     return reviews._id == reviewId;
+                    return reviews._id == reviewId;
                 })[0];
-                 vendordata._id = data._id;
-                 vendordata.saloonName = data.saloonName;
-                 vendordata.address = data.address;
-                 vendordata.contactNumber = data.contactNumber;
-                 vendordata.state = data.state;
-                 vendordata.city = data.city;
-                 vendordata.zipCode = data.zipCode;
-                 vendordata.email = data.email;
-                 return vendordata;
+                vendordata._id = data._id;
+                vendordata.saloonName = data.saloonName;
+                vendordata.address = data.address;
+                vendordata.contactNumber = data.contactNumber;
+                vendordata.state = data.state;
+                vendordata.city = data.city;
+                vendordata.zipCode = data.zipCode;
+                vendordata.email = data.email;
+                return vendordata;
             });
         });
     },
@@ -128,7 +128,7 @@ let exportedMethods = {
                 _id: reviewId,
                 userId: userId,
                 rating: rating,
-                review:review
+                review: review
             };
             return vendorsCollection.updateOne({ _id: vendorId }, { $push: { "reviews": addReviews } }).then(function () {
                 return exportedMethods.getReviewsFromReviewId(reviewId).then((reviewdata) => {
@@ -139,7 +139,7 @@ let exportedMethods = {
             });
         });
     },
-   
+
     removeReviews(reviewId) {
         return vendors().then((vendorsCollection) => {
             return vendorsCollection.updateOne(
@@ -187,24 +187,24 @@ let exportedMethods = {
     },
 
     getAllReviewsFromVendorId(vendorId) {
-        if (vendorId === undefined) 
+        if (vendorId === undefined)
             return Promise.reject("You must provide an ID");
         return vendors().then((vendorsCollection) => {
             return vendorsCollection.findOne({ _id: vendorId }).then((data) => {
-                if (data === 'undefined') 
+                if (data === 'undefined')
                     throw "Vendor not found !";
-                    let vendordata = data.reviews;
-                    return vendordata;
+                let vendordata = data.reviews;
+                return vendordata;
             });
         });
     },
 
     getAllHairCuttersFromVendorId(id) {
-        if (id === undefined) 
+        if (id === undefined)
             return Promise.reject("You must provide an ID");
         return hairCutters().then((hairCuttersCollection) => {
             return hairCuttersCollection.findOne({ vendorId: id }).then((data) => {
-                if (data === 'undefined') 
+                if (data === 'undefined')
                     throw "HairCutter not found from VendorID!";
                 return data;
             });
@@ -212,36 +212,36 @@ let exportedMethods = {
     },
 
     getAllServicesFromVendorId(id) {
-        if (id === undefined) 
+        if (id === undefined)
             return Promise.reject("You must provide an ID");
         return services().then((servicesCollection) => {
             return servicesCollection.findOne({ vendorId: id }).then((servicedata) => {
-                if (servicedata === 'undefined') 
+                if (servicedata === 'undefined')
                     throw "Service not found from VendorID!";
-                    return servicedata;
+                return servicedata;
             });
         });
     },
     getReviewsFromReviewId(reviewId) {
-        if (!reviewId) 
+        if (!reviewId)
             return Promise.reject("You must provide an ReviewID");
         return vendors().then((vendorsCollection) => {
             return vendorsCollection.findOne({ $where: "this.reviews._id = '" + reviewId + "'" }).then((data) => {
                 console.log(data);
-                 if (!data)
-                   throw "Reviews not Found !";
+                if (!data)
+                    throw "Reviews not Found !";
                 let vendordata = data.reviews.filter(function (reviews) {
-                     return reviews._id == reviewId;
+                    return reviews._id == reviewId;
                 })[0];
-                 vendordata._id = data._id;
-                 vendordata.saloonName = data.saloonName;
-                 vendordata.address = data.address;
-                 vendordata.contactNumber = data.contactNumber;
-                 vendordata.state = data.state;
-                 vendordata.city = data.city;
-                 vendordata.zipCode = data.zipCode;
-                 vendordata.email = data.email;
-                 return vendordata;
+                vendordata._id = data._id;
+                vendordata.saloonName = data.saloonName;
+                vendordata.address = data.address;
+                vendordata.contactNumber = data.contactNumber;
+                vendordata.state = data.state;
+                vendordata.city = data.city;
+                vendordata.zipCode = data.zipCode;
+                vendordata.email = data.email;
+                return vendordata;
             });
         });
     },
@@ -252,7 +252,7 @@ let exportedMethods = {
                 _id: reviewId,
                 userId: userId,
                 rating: rating,
-                review:review
+                review: review
             };
             return vendorsCollection.updateOne({ _id: vendorId }, { $push: { "reviews": addReviews } }).then(function () {
                 return exportedMethods.getReviewsFromReviewId(reviewId).then((reviewdata) => {
@@ -263,7 +263,7 @@ let exportedMethods = {
             });
         });
     },
-   
+
     removeReviews(reviewId) {
         return vendors().then((vendorsCollection) => {
             return vendorsCollection.updateOne(
@@ -343,7 +343,7 @@ exportedMethods.updateReviews("24a95bf7-5a6e-4f98-8b25-240aa2184e30", "9c74f2bb-
 */
 exportedMethods.getAllServicesFromVendorId("0b8bbd98-3981-47fa-bd2b-2b57f29054cb").then((data) => {
     console.log(data);
-}); 
+});
 
 /*exportedMethods.getAllHairCuttersFromVendorId("0b8bbd98-3981-47fa-bd2b-2b57f29054cb").then((data) => {
     console.log(data);

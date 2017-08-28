@@ -22,7 +22,7 @@ let exportedMethods = {
         return services().then((servicesCollection) => {
             let newService = {
                 _id: uuid(),
-                vendorId:vendorId,
+                vendorId: vendorId,
                 serviceName: serviceName,
                 description: description,
                 cost: cost
@@ -82,14 +82,14 @@ let exportedMethods = {
                 })[0];
                 servicedata._id = data._id;
                 servicedata.vendorId = data.vendorId,
-                servicedata.serviceName = data.serviceName,
-                servicedata.description = data.description,
-                servicedata.cost = data.cost
+                    servicedata.serviceName = data.serviceName,
+                    servicedata.description = data.description,
+                    servicedata.cost = data.cost
                 return servicedata;
             });
         });
     },
-    addReviews(serviceId,userId,rating, review) {
+    addReviews(serviceId, userId, rating, review) {
         return services().then((servicesCollection) => {
             reviewId = uuid();
             let addReviews = {
@@ -98,7 +98,7 @@ let exportedMethods = {
                 rating: rating,
                 review: review
             };
-            return servicesCollection.updateOne({_id: serviceId }, { $push: { "reviews": addReviews } }).then(function () {
+            return servicesCollection.updateOne({ _id: serviceId }, { $push: { "reviews": addReviews } }).then(function () {
                 return exportedMethods.getReviewsFromReviewId(reviewId).then((data) => {
                     return data;
                 }, (err) => {
@@ -108,14 +108,14 @@ let exportedMethods = {
         });
     },
     getAllReviewsFromServiceId(serviceId) {
-        if (!serviceId) 
+        if (!serviceId)
             return Promise.reject("You must provide an ID");
         return services().then((servicesCollection) => {
             return servicesCollection.findOne({ _id: serviceId }).then((data) => {
-                if (data === 'undefined') 
+                if (data === 'undefined')
                     throw "HairCutter not found !";
-                    let servicesdata = data.reviews;
-                    return servicesdata;
+                let servicesdata = data.reviews;
+                return servicesdata;
             });
         });
     },
@@ -128,7 +128,7 @@ module.exports = exportedMethods;
 */
 exportedMethods.getAllReviewsFromServiceId("58a325ed-e075-411b-8383-22c36391b5e1").then((data) => {
     console.log(data);
-}); 
+});
 
 /*exportedMethods.addService("0b8bbd98-3981-47fa-bd2b-2b57f29054cb", "servicename", "description","cost").then((data) => {
     console.log(data);

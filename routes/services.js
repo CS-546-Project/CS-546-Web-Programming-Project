@@ -5,7 +5,7 @@ const serviceData = data.services;
 
 router.get("/:id", (req, res) => {
     serviceData.getServicesById(req.params.id).then((service) => {
-        res.render("pages/services",service);
+        res.render("pages/services", service);
     }).catch(() => {
         res.status(404).json({ error: "service not found" });
     });
@@ -18,7 +18,7 @@ router.post("/", (req, res) => {
     let serviceBody = req.body;
 
     serviceData.addService(serviceBody.vendorId, serviceBody.service,
-     serviceBody.description, serviceBody.cost)
+        serviceBody.description, serviceBody.cost)
         .then((newServive) => {
             res.json(newServive);
         }).catch((e) => {
@@ -39,7 +39,7 @@ router.put("/:id", (req, res) => {
                 res.status(500).json({ error: e });
             });
     }).catch((e) => {
-console.log(e);
+        console.log(e);
         res.status(404).json({ error: "Service not found" });
     });
 

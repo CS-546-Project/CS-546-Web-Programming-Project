@@ -1,25 +1,23 @@
-
-    
-    <div id="search" class="animate form" style="margin:auto;">
+<div id="search" class="animate form" style="margin:auto;">
     <p>
         <div id="boxes">
             <form id="searchForm" action="/search" method="post">
-    <label for="search"><h3>Search Salon</h3></label>
-    <input id="searchText" name="searchText" type="text" placeholder="Salon Name"/>   
-    <input type="submit" value="SEARCH" /> 
-    </form>
-    </div>
-    </p>       
-<ul>
-    {{#each .}}
+                <label for="search"><h3>Search Salon</h3></label>
+                <input id="searchText" name="searchText" type="text" placeholder="Salon Name" />
+                <input type="submit" value="SEARCH" />
+            </form>
+        </div>
+    </p>
+    <ul>
+        {{#each .}}
         <li><a href="http://localhost:3000/salon/{{_id}}"> {{saloonName}}</a></li>
-    {{/each}}
-</ul>
-    </div>
-    </p>       
+        {{/each}}
+    </ul>
 </div>
-    <h3>Suggested Salons</h3>
-    <div id="hints">
+</p>
+</div>
+<h3>Suggested Salons</h3>
+<div id="hints">
     <p>
         <ul>
             <li>Scisors and Razors</li>
@@ -27,5 +25,4 @@
             <li>Color Me Crazy</li>
         </ul>
     </p>
-    </div>
-
+</div>
