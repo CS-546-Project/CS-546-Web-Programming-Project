@@ -109,24 +109,3 @@ module.exports = exportedMethods;
 // });  
 
 
-// ------------------------------------------Dummy Data ------------------------------------------------------------------
-/* exportedMethods.removeUser('b116019d-314d-4519-9a45-16dc0bac74e2').then(() => {
-    console.log("Removed");
-}); */
-/* let data = {
-    firstName: "H J",
-    lastName: "K",
-    address: "JFK Blvd",
-    contactNumber: "800-045-7984",
-    state: "CA",
-    city: "Los Angeles",
-    zipCode: "12345",
-    email: "harshKevadia@stevens.edu",
-    password: "Harsh-Gopi"
-};
-exportedMethods.updateUserInfo('fbee5da4-77a1-4923-a185-5043a63bd152', data).then((data) => {
-    console.log(data);
-}) */
-/* exportedMethods.getUserByEmail("hkevadia@stevens.edu").then((data) => {
-    console.log(data);
-}); */

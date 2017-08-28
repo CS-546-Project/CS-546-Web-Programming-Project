@@ -135,11 +135,11 @@ module.exports = exportedMethods;
 
 
 
-/* 
-exportedMethods.addhairCutter("7f111dc0-19da-4dfe-8346-d41ad021cffc","Jai","Patel", "Hair Stylist", "stylist2.jpeg", "I have been working in a salon since I was 17. After a few years of shampooing and assisting many talented stylists, I decided that I wanted to be the one behind the chair. I started beauty school and while there I attended as many extra classes as I could.").then((data) => {
-     console.log(data);
-});
- */
+
+// exportedMethods.addhairCutter("7f111dc0-19da-4dfe-8346-d41ad021cffc","Jai","Patel", "Hair Stylist", "stylist2.jpeg", "I have been working in a salon since I was 17. After a few years of shampooing and assisting many talented stylists, I decided that I wanted to be the one behind the chair. I started beauty school and while there I attended as many extra classes as I could.").then((data) => {
+//      console.log(data);
+// });
+ 
 
 // exportedMethods.addReviews("94614a92-8543-472b-8cf1-21225ce98fa9", "c925049f-098e-4b00-8543-15c46e7617b6", "5", "It is TOO good").then((data) => {
 //     console.log(data);

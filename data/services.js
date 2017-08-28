@@ -133,32 +133,3 @@ module.exports = exportedMethods;
 
 
 
-//---------------------------------Dummy Data ----------------------------------------------------------------
-/*exportedMethods.addReviews("58a325ed-e075-411b-8383-22c36391b5e1", "455a942a-edaf-4b76-96a6-3491425a020a", "5", "It is TOO good").then((data) => {
-    console.log(data);
-});
-*/
-/*exportedMethods.getAllReviewsFromServiceId("58a325ed-e075-411b-8383-22c36391b5e1").then((data) => {
-    console.log(data);
-});
-
-*/
-
-/*exportedMethods.removeService('9a3b26bc-8a9f-4d26-bb71-952fef65350d').then(() => {
-    console.log("Removed");
-}); */
-
-/*exportedMethods.getServicesById('9a3b26bc-8a9f-4d26-bb71-952fef65350d').then((data) => {
-    console.log(data);
-}); 
-
-/*let data = {
-    vendorId: "0b8bbd98-3981-47fa-bd2b-2b57f29054cb",
-    serviceName: "service1",
-    description: "description1",
-    cost: "50"
-   
-};
-exportedMethods.updateServiceInfo('bf291185-7585-4607-8030-c7672ab85a63', data).then((data) => {
-    console.log(data);
-}) */
