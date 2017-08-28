@@ -148,8 +148,8 @@ label.star:before {
 #salon{
    
     text-align: left;
-    margin-left: 20px;
-    padding: 10px 10px 10px 10px;
+    margin: auto;
+    padding: 20px 20px 20px 20px;
     color:whitesmoke;  
     width: 50%;   
 	border: 1px solid rgba(147, 184, 189,0.8);
@@ -173,12 +173,10 @@ p{
 #listing li {
     margin: 20px;
 }
-#signin{
+#signup{
     width: 30%;	
     padding: 10px 3% 20px 3%;
-    margin: 10px 10px 10px 10px;
-    margin-top: 30px;
-    margin-left: 50px;
+    margin: auto;
 	border: 1px solid rgba(147, 184, 189,0.8);
 	-webkit-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
 	   -moz-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
@@ -201,6 +199,20 @@ p{
 	-moz-border-radius: 5px;
 		 border-radius: 5px;
 }
+#stylist{
+    width: 70%;	
+    margin:auto;
+    text-align: left;
+      vertical-align: middle;
+      padding: 20px;
+    	border: 1px solid rgba(147, 184, 189,0.8);
+	-webkit-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+	   -moz-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+	        box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+	-webkit-box-shadow: 5px;
+	-moz-border-radius: 5px;
+		 border-radius: 5px;
+}
 
 #boxes input{
     color:  #5f5f5f;
@@ -208,6 +220,17 @@ p{
           vertical-align: middle;
 
     width: 230px;
+    box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.08);
+    padding: 12px 18px;
+    border: 1px solid #dbdbdb;
+}
+.boxes input{
+        color:  #5f5f5f;
+    box-sizing: border-box;
+    float: right;
+    width: 230px;
+    height: 30px;
+    vertical-align: top;
     box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.08);
     padding: 12px 18px;
     border: 1px solid #dbdbdb;

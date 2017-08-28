@@ -1,5 +1,4 @@
 <div id="container">
-    <div id="left">
         <div id="salon" class="animate form">
 
             <h2>{{vendor.saloonName}}</h2>
@@ -8,8 +7,7 @@
                 coloring and styling.</p>
             <h3>Address</h3>
             <p>{{vendor.address}}</p>
-            <h3>Timings</h3>
-            <p>10 a.m to 7 p.m.</p>
+            
             <h3>Stylists</h3>
             <div id="listing">
                 <ul>
@@ -27,15 +25,17 @@
                     {{/each}}
                 </ul>
             </div>
-            <h3>Overall Rating:4.5
+            
                 <h3>
-                    <br>
+                  
                     <h3>Reviews
-                        <h3>
+                        <h4>
 
                             {{#each reviews}}
-                            <li> Review: {{this.review}} Rating:{{this.rating}} userId:{{this.userId}}
-                            </li>
+                            <li> Review: {{this.review}}  </li>
+                           
+                            <li>Rating: {{this.rating}} </li>
+                            <li>User ID: {{this.userId}}</li>
                             {{/each}}
                             <div class="animate form">
                                 <form id="reviewForm" action="/reviews/{{_id}}" method="post">
@@ -54,9 +54,11 @@
                                             <label class="star star-1" for="star-1"></label>
                                     </p>
                                     <label for="review" class="uname"><h3> Write a Review </h3></label>
-                                    <input id="review" name="review" required="required" style="width:500px; height: 150px;"></input>
+                                    <input id="review" name="review" required="required" style="width:500px; height: 50px;"></input>
                                     <p>
-                                        <input type="submit" value="Submit Review" />
+                                        <div class="boxes">
+                                    <input type="submit" value="Submit Review" />
+                                    </div>
                                     </p>
                                 </form>
 
@@ -65,7 +67,7 @@
         </div>
     </div>
 </div>
-<div id="right">
+{{!<div id="right">
 
     <table>
         <tr>
@@ -99,5 +101,5 @@
 </a></td>
         </tr>
     </table>
-</div>
+</div>}}
 </div>
