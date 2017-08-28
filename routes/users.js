@@ -2,63 +2,28 @@ const express = require('express');
 const router = express.Router();
 const data = require("../data");
 const usersData = data.users;
-
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const bcrypt = require('bcrypt');
-
-passport.use(new LocalStrategy(
-    function (email, password, done) {
-        let user = usersData.getVendorByEmail(email);
-        if (user === undefined) {
-            return done("User is not found");
-        }
-        else {
-            bcrypt.compare(password, user.hashedPassword, function (err, res) {
-                if (err) {
-                    return done(err);
-                }
-                if (res === true) {
-                    return done(null, saloonDetails);
-                }
-                else if (res === false) {
-                    return done(null, false);
-                }
-            });
-        }
-    }
-));
-
-passport.serializeUser((user, obj) => {
-    obj(null, user._id);
-});
-
-passport.deserializeUser((id, obj) => {
-    let userDetails = usersData.getVendorById(id);
-    if (userDetails === undefined) {
-        return obj("There is error");
-    }
-    else {
-        obj(null, userDetails);
-    }
-});
-
-router.post('/login2323',
-    passport.authenticate('local', { failureRedirect: '/signin' }),
-    function (req, res) {
-        res.redirect('/72f74edd-499d-4056-bab4-5e092ba4d565');
-    });
-
-router.get("/signin", (req, res) => {
-    res.render("pages/customerLogin", {});
-})
-
+const vendorsData=data.vendors; 
 router.get("/signup", (req, res) => {
     res.render("pages/CustSignUp", {});
 });
+router.get("/salon/:id", (req, res) => {
+    vendorsData.getVendorById(req.params.id).then((vendor) => {
+        res.render("pages/salon",vendor);
+    }).catch(() => {
+        res.status(404).json({ error: "Salon not found" });
+    });
+});
 
-
-
+router.post("/search", (req, res) => {
+    let vendorBody = req.body;
+    console.log(vendorBody.searchText);
+    vendorsData.getVendorsBySearch(vendorBody.searchText)
+        .then((newVendor) => {
+            res.render("pages/search_salon",newVendor);
+        }).catch((e) => {
+            res.status(500).json({ error: e });
+        });
+});
 router.get("/:id", (req, res) => {
     usersData.getUserById(req.params.id).then((user) => {
         res.render("pages/search_salon",user);

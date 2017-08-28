@@ -2,7 +2,35 @@ const express = require('express');
 const router = express.Router();
 const data = require("../data");
 const vendorsData = data.vendors;
+var multer = require('multer');
+var fs=require("fs");
+var storage	=	multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null,'./public/SalonImages');
+  },
+  filename: function (req, file, callback) {
+    callback(null, file.fieldname + '-' + Date.now()+ '.jpg');
+  }
+});
+var upload = multer({ storage : storage}).single('file');
+router.post('/vendors/upload',  function(req, res) {
+ 
+ 	upload(req,res,function(err) {
 
+    if (err) {
+      console.log(err);
+      res.send(500);
+    } else {
+  res.render("pages/owner",{
+        message: 'File uploaded successfully',
+        filename: req.file.filename
+      });
+
+
+     
+    }
+  });
+});
 router.get("/:id", (req, res) => {
     vendorsData.getVendorById(req.params.id).then((vendor) => {
         console.log(vendor);
@@ -22,6 +50,7 @@ router.post("/", (req, res) => {
             res.status(500).json({ error: e });
         });
 });
+
 
 router.put("/:id", (req, res) => {
     let updatedData = req.body;
