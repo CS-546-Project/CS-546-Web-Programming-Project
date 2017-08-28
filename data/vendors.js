@@ -341,9 +341,9 @@ exportedMethods.updateReviews("24a95bf7-5a6e-4f98-8b25-240aa2184e30", "9c74f2bb-
     console.log("Removed");
 }); 
 */
-exportedMethods.getAllServicesFromVendorId("0b8bbd98-3981-47fa-bd2b-2b57f29054cb").then((data) => {
+/* exportedMethods.getAllServicesFromVendorId("0b8bbd98-3981-47fa-bd2b-2b57f29054cb").then((data) => {
     console.log(data);
-});
+}); */
 
 /*exportedMethods.getAllHairCuttersFromVendorId("0b8bbd98-3981-47fa-bd2b-2b57f29054cb").then((data) => {
     console.log(data);
