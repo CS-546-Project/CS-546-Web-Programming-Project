@@ -13,8 +13,8 @@
             <h3>Stylists</h3>
             <div id="listing">
                 <ul>
-                    {{#each .}}
-                    <li><a href="http://localhost:3000/hairCutters/{{stylst._id}}"> {{stylst.firstName}} {{stylst.lastname}}</a></li>
+                    {{#each stylst}}
+                    <li><a href="http://localhost:3000/hairCutters/{{this._id}}"> {{this.firstName}} {{this.lastName}}</a></li>
                     {{/each}}
                 </ul>
             </div>
@@ -22,23 +22,19 @@
             <h3>Services</h3>
             <div id="listing">
                 <ul>
-                    {{#each .}}
-                    <li><a href="http://localhost:3000/services/{{services._id}}"> {{services.serviceName}}</a></li>
+                    {{#each services}}
+                    <li><a href="http://localhost:3000/services/{{this._id}}"> {{this.serviceName}}</a></li>
                     {{/each}}
                 </ul>
             </div>
             <h3>Overall Rating:4.5
                 <h3>
                     <br>
-                    <br>
-                    <form id="revForm" action="/rev/{{_id}}" method="post">
-                        <input type="submit" value="Get Reviews" />
-                    </form>
                     <h3>Reviews
                         <h3>
 
-                            {{#each .}}
-                            <li> Review: {{reviews.review}} Rating:{{reviews.rating}} userId:{{reviews.userId}}
+                            {{#each reviews}}
+                            <li> Review: {{this.review}} Rating:{{this.rating}} userId:{{this.userId}}
                             </li>
                             {{/each}}
                             <div class="animate form">
