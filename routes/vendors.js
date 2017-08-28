@@ -3,38 +3,38 @@ const router = express.Router();
 const data = require("../data");
 const vendorsData = data.vendors;
 var multer = require('multer');
-var fs = require("fs");
-var storage = multer.diskStorage({
-    destination: function (req, file, callback) {
-        callback(null, './public/SalonImages');
-    },
-    filename: function (req, file, callback) {
-        callback(null, file.fieldname + '-' + Date.now() + '.jpg');
-    }
+var fs=require("fs");
+var storage	=	multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null,'./public/SalonImages');
+  },
+  filename: function (req, file, callback) {
+    callback(null, file.fieldname + '-' + Date.now()+ '.jpg');
+  }
 });
-var upload = multer({ storage: storage }).single('file');
-router.post('/vendors/upload', function (req, res) {
+var upload = multer({ storage : storage}).single('file');
+router.post('/vendors/upload',  function(req, res) {
+ 
+ 	upload(req,res,function(err) {
 
-    upload(req, res, function (err) {
-
-        if (err) {
-            console.log(err);
-            res.send(500);
-        } else {
-            res.render("pages/owner", {
-                message: 'File uploaded successfully',
-                filename: req.file.filename
-            });
+    if (err) {
+      console.log(err);
+      res.send(500);
+    } else {
+  res.render("pages/owner",{
+        message: 'File uploaded successfully',
+        filename: req.file.filename
+      });
 
 
-
-        }
-    });
+     
+    }
+  });
 });
 router.get("/:id", (req, res) => {
     vendorsData.getVendorById(req.params.id).then((vendor) => {
         console.log(vendor);
-        res.render("pages/owner", vendor);
+        res.render("pages/owner",vendor);
     }).catch(() => {
         res.status(404).json({ error: "Vendor not found" });
     });
@@ -81,29 +81,6 @@ router.delete("/:id", (req, res) => {
     }).catch(() => {
         res.status(404).json({ error: "Vendor not found" });
     });
-});
-
-router.get("/reviews/:id", (req, res) => {
-    vendorsData.getReviewsFromReviewId(req.params.id).then((reviews) => {
-        res.json(reviews);
-    }).catch((e) => {
-        console.log(e);
-        res.status(500).json({ error: e });
-    });
-});
-
-router.post("/:id", (req, res) => {
-    let reviewBody = req.body;
-    let getReview = vendorsData.getReviewsFromReviewId(req.params.id);
-
-    vendorsData.addReviews(getReview._id, commentBody.poster, commentBody.comment)
-        .then((newComment) => {
-            res.json(newComment);
-        }).catch((e) => {
-            console.log(e);
-
-            res.status(500).json({ error: e });
-        });
 });
 
 

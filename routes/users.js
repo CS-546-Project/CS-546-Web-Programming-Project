@@ -2,36 +2,98 @@ const express = require('express');
 const router = express.Router();
 const data = require("../data");
 const usersData = data.users;
-const vendorsData = data.vendors;
-
-router.get("/", (req, res) => {
-    res.render("pages/search_salon", {});
-});
-
+const vendorsData=data.vendors; 
 router.get("/signup", (req, res) => {
     res.render("pages/CustSignUp", {});
 });
 router.get("/salon/:id", (req, res) => {
     vendorsData.getVendorById(req.params.id).then((vendor) => {
-        res.render("pages/salon", vendor);
+        res.render("pages/salon",vendor);
     }).catch(() => {
         res.status(404).json({ error: "Salon not found" });
     });
 });
+
+router.post("/stylist/:id", (req, res) => {
+    vendorsData.getAllHairCuttersFromVendorId(req.params.id).then((vendor) => {
+        console.log(vendor);
+        res.render("pages/salon",vendor);
+    }).catch(() => {
+        res.status(404).json({ error: "Haircutter not found" });
+    });
+});
+router.post("/serv/:id", (req, res) => {
+    vendorsData.getAllServicesFromVendorId(req.params.id).then((vendor) => {
+        res.render("pages/salon",vendor);
+    }).catch(() => {
+        res.status(404).json({ error: "Services not found" });
+    });
+});
+router.post("/rev/:id", (req, res) => {
+    vendorsData.getAllReviewsFromVendorId(req.params.id).then((vendor) => {
+        res.render("pages/salon",vendor);
+    }).catch(() => {
+        res.status(404).json({ error: "Reviews not found" });
+    });
+});
+
+router.get("/reviews/:id", (req, res) => {
+    vendorsData.getReviewsFromReviewId(req.params.id).then((reviews) => {
+        res.json(reviews);
+    }).catch((e) => {
+        console.log(e);
+        res.status(500).json({ error: e });
+    });
+});
+
+router.post("/reviews/:id", (req, res) => {
+    let reviewBody = req.body;
+    var rating;
+if(reviewBody.five){
+rating="5";
+}
+if(reviewBody.four){
+rating="4";
+}
+if(reviewBody.three){
+rating="3";
+}
+if(reviewBody.two){
+rating="2";
+}
+if(reviewBody.one){
+rating="1";
+}
+            console.log(req.params.id);
+                        console.log(rating);
+                        console.log(reviewBody.review);
+
+    vendorsData.addReviews(req.params.id, "dadb705c-1844-46ee-ad1b-7df5b6ff8f7b", rating,reviewBody.review)
+        .then((newComment) => {
+            console.log(newComment);
+            res.render("pages/salon",newComment);
+        }).catch((e) => {
+            console.log(e);
+
+            res.status(500).json({ error: e });
+        });
+});
+
+
 
 router.post("/search", (req, res) => {
     let vendorBody = req.body;
     console.log(vendorBody.searchText);
     vendorsData.getVendorsBySearch(vendorBody.searchText)
         .then((newVendor) => {
-            res.render("pages/search_salon", newVendor);
+            res.render("pages/search_salon",newVendor);
         }).catch((e) => {
             res.status(500).json({ error: e });
         });
 });
 router.get("/:id", (req, res) => {
     usersData.getUserById(req.params.id).then((user) => {
-        res.render("pages/search_salon", user);
+        res.render("pages/search_salon",user);
     }).catch(() => {
         res.status(404).json({ error: "User not found" });
     });

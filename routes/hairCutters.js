@@ -5,7 +5,7 @@ const hairCuttersData = data.hairCutters;
 
 router.get("/:id", (req, res) => {
     hairCuttersData.gethairCutterById(req.params.id).then((hairCutters) => {
-        res.render("pages/stylists", hairCutters);
+        res.render("pages/stylists",hairCutters);
     }).catch(() => {
         res.status(404).json({ error: "Hair Cutter not found" });
     });
