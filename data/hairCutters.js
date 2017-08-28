@@ -79,12 +79,74 @@ let exportedMethods = {
             });
         });
     },
+     getReviewsFromReviewId(reviewId) {
+        if (!reviewId)
+            return Promise.reject("You must provide an ReviewID");
+        return hairCutters().then((hairCuttersCollection) => {
+            return hairCuttersCollection.findOne({ $where: "this.reviews._id = '" + reviewId + "'" }).then((data) => {
+                if (!data)
+                    throw "Reviews not Found !";
+                let hairCutterdata = data.reviews.filter(function (reviews) {
+                    return reviews._id == reviewId;
+                })[0];
+                hairCutterdata._id = data._id;
+                hairCutterdata.vendorId = data.vendorId,
+                hairCutterdata.firstName = data.firstName,
+                hairCutterdata.lastName = data.lastName,
+                hairCutterdata.heading = data.heading,
+                hairCutterdata.image = data.image,
+                hairCutterdata.description = data.description
+                return hairCutterdata;
+            });
+        });
+    },
+    addReviews(hairCutterId,userId,rating, reviews) {
+        return hairCutters().then((hairCutterCollection) => {
+            reviewId = uuid();
+            let addReviews = {
+                _id: reviewId,
+                userId: userId,
+                rating: rating,
+                reviews: reviews
+            };
+            return hairCutterCollection.updateOne({_id: hairCutterId }, { $push: { "reviews": addReviews } }).then(function () {
+                return exportedMethods.getReviewsFromReviewId(reviewId).then((data) => {
+                    return data;
+                }, (err) => {
+                    return Promise.reject("Cannot add this reviews");
+                });
+            });
+        });
+    },
+    getAllReviewsFromHairCutterId(hairCutterId) {
+        if (!hairCutterId) 
+            return Promise.reject("You must provide an ID");
+        return hairCutters().then((hairCuttersCollection) => {
+            return hairCuttersCollection.findOne({ _id: hairCutterId }).then((data) => {
+                if (data === 'undefined') 
+                    throw "HairCutter not found !";
+                    let hairCutterdata = data.reviews;
+                    return hairCutterdata;
+            });
+        });
+    },
 }
 module.exports = exportedMethods;
 
+/*exportedMethods.addReviews("c9d68e16-06f3-40e6-a0da-83cf85d56bf6", "455a942a-edaf-4b76-96a6-3491425a020a", "5", "It is TOO good").then((data) => {
+    console.log(data);
+});   
+*/
+/*exportedMethods.getReviewsFromReviewId("f60df383-d0a1-4332-9136-e3810f3f2f98").then((data) => {
+    console.log(data);
+}); 
+*/
+/*exportedMethods.getAllReviewsFromHairCutterId("c9d68e16-06f3-40e6-a0da-83cf85d56bf6").then((data) => {
+    console.log(data);
+}); 
 /*exportedMethods.addhairCutter("0b8bbd98-3981-47fa-bd2b-2b57f29054cb","Ruchika","Sutariya", "heading", "image", "description").then((data) => {
     console.log(data);
-});/* 
+});/*
 exportedMethods.removehairCutter('a8e5b375-a838-4dfd-8af8-f488dfecc089').then(() => {
     console.log("Removed");
 });*/

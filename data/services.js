@@ -73,45 +73,62 @@ let exportedMethods = {
     getReviewsFromReviewId(reviewId) {
         if (!reviewId)
             return Promise.reject("You must provide an ReviewID");
-        return vendors().then((vendorsCollection) => {
-            return vendorsCollection.findOne({ $where: "this.reviews.id = '" + reviewId + "'" }).then((data) => {
+        return services().then((servicesCollection) => {
+            return servicesCollection.findOne({ $where: "this.reviews._id = '" + reviewId + "'" }).then((data) => {
                 if (!data)
                     throw "Reviews not Found !";
-                let vendordata = data.reviews.filter(function (reviews) {
+                let servicedata = data.reviews.filter(function (reviews) {
                     return reviews._id == reviewId;
                 })[0];
-                vendordata._id = data._id;
-                vendordata.saloonName = data.saloonName;
-                vendordata.address = data.address;
-                vendordata.contactNumber = data.contactNumber;
-                vendordata.state = data.state;
-                vendordata.city = data.city;
-                vendordata.zipCode = data.zipCode;
-                vendordata.email = data.email;
-                return vendordata;
+                servicedata._id = data._id;
+                servicedata.vendorId = data.vendorId,
+                servicedata.serviceName = data.serviceName,
+                servicedata.description = data.description,
+                servicedata.cost = data.cost
+                return servicedata;
             });
         });
     },
-    addReviews(userId,rating, reviews) {
-        return vendors().then((vendorsReviewsCollection) => {
-            serviceId = uuid();
+    addReviews(serviceId,userId,rating, review) {
+        return services().then((servicesCollection) => {
+            reviewId = uuid();
             let addReviews = {
-                _id: serviceId,
+                _id: reviewId,
                 userId: userId,
                 rating: rating,
-                reviews: reviews
+                review: review
             };
-            return vendorsReviewsCollection.updateOne({_id: VendorId }, { $push: { "Service reviews": addReviews } }).then(function () {
-                return exportedMethods.getReviewsFromReviewId(re).then((data) => {
+            return servicesCollection.updateOne({_id: serviceId }, { $push: { "reviews": addReviews } }).then(function () {
+                return exportedMethods.getReviewsFromReviewId(reviewId).then((data) => {
                     return data;
                 }, (err) => {
                     return Promise.reject("Cannot add this reviews");
                 });
             });
         });
-    }
+    },
+    getAllReviewsFromServiceId(serviceId) {
+        if (!serviceId) 
+            return Promise.reject("You must provide an ID");
+        return services().then((servicesCollection) => {
+            return servicesCollection.findOne({ _id: serviceId }).then((data) => {
+                if (data === 'undefined') 
+                    throw "HairCutter not found !";
+                    let servicesdata = data.reviews;
+                    return servicesdata;
+            });
+        });
+    },
 }
 module.exports = exportedMethods;
+
+/*exportedMethods.addReviews("58a325ed-e075-411b-8383-22c36391b5e1", "455a942a-edaf-4b76-96a6-3491425a020a", "5", "It is TOO good").then((data) => {
+    console.log(data);
+});
+*/
+/*exportedMethods.getAllReviewsFromServiceId("58a325ed-e075-411b-8383-22c36391b5e1").then((data) => {
+    console.log(data);
+}); 
 
 /*exportedMethods.addService("0b8bbd98-3981-47fa-bd2b-2b57f29054cb", "servicename", "description","cost").then((data) => {
     console.log(data);
@@ -123,7 +140,7 @@ module.exports = exportedMethods;
 
 /*exportedMethods.getServicesById('9a3b26bc-8a9f-4d26-bb71-952fef65350d').then((data) => {
     console.log(data);
-}); */
+}); 
 
 /*let data = {
     vendorId: "0b8bbd98-3981-47fa-bd2b-2b57f29054cb",

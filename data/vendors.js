@@ -94,8 +94,194 @@ let exportedMethods = {
                 });
             });
         });
-    }
+    },
+    getReviewsFromReviewId(reviewId) {
+        if (!reviewId) 
+            return Promise.reject("You must provide an ReviewID");
+        return vendors().then((vendorsCollection) => {
+            return vendorsCollection.findOne({ $where: "this.reviews._id = '" + reviewId + "'" }).then((data) => {
+                console.log(data);
+                 if (!data)
+                   throw "Reviews not Found !";
+                let vendordata = data.reviews.filter(function (reviews) {
+                     return reviews._id == reviewId;
+                })[0];
+                 vendordata._id = data._id;
+                 vendordata.saloonName = data.saloonName;
+                 vendordata.address = data.address;
+                 vendordata.contactNumber = data.contactNumber;
+                 vendordata.state = data.state;
+                 vendordata.city = data.city;
+                 vendordata.zipCode = data.zipCode;
+                 vendordata.email = data.email;
+                 return vendordata;
+            });
+        });
+    },
+    addReviews(vendorId, userId, rating, review) {
+        return vendors().then((vendorsCollection) => {
+            reviewId = uuid()
+            let addReviews = {
+                _id: reviewId,
+                userId: userId,
+                rating: rating,
+                review:review
+            };
+            return vendorsCollection.updateOne({ _id: vendorId }, { $push: { "reviews": addReviews } }).then(function () {
+                return exportedMethods.getReviewsFromReviewId(reviewId).then((reviewdata) => {
+                    return reviewdata;
+                }, (err) => {
+                    return Promise.reject("Cannot add this review");
+                });
+            });
+        });
+    },
+   
+    removeReviews(reviewId) {
+        return vendors().then((vendorsCollection) => {
+            return vendorsCollection.updateOne(
+                { "reviews._id": reviewId },
+                { $unset: { "reviews.$._id": reviewId } }
+            ).then((deletionInfo) => {
+                if (deletionInfo.updatedCount === 0) {
+                    throw (`Could not get reviews with id of ${reviewId}`)
+                }
+            });
+        });
+    },
 
+    updateReviews(vendorId, reviewId, updateddata) {
+        return this.getReviewsFromReviewId(reviewId).then((currentReview) => {
+            if (!currentReview) throw "Reviews not found !";
+
+            let reviewInfo = currentReview;
+            if ('userId' in updateddata) {
+                reviewInfo.userId = updateddata.userId;
+            }
+            if ('rating' in updateddata) {
+                reviewInfo.rating = updateddata.rating;
+            }
+            if ('reviews' in updateddata) {
+                reviewInfo.reviews = updateddata.reviews;
+            }
+            delete reviewInfo['vendorId'];
+            delete reviewInfo['saloonName'];
+            delete reviewInfo['address'];
+            delete reviewInfo['contactNumber'];
+            delete reviewInfo['state'];
+            delete reviewInfo['city'];
+            delete reviewInfo['zipcode'];
+            delete reviewInfo['email'];
+            let updateReviewdata = {
+                $set: { "reviews.$": reviewInfo }
+            };
+            return vendors().then((vendorsCollection) => {
+                return vendorsCollection.updateOne({ "reviews._id": reviewId }, updateReviewdata).then(() => {
+                    return this.getReviewsFromReviewId(reviewId);
+                });
+            });
+        });
+    },
+
+    getAllReviewsFromVendorId(vendorId) {
+        if (vendorId === undefined) 
+            return Promise.reject("You must provide an ID");
+        return vendors().then((vendorsCollection) => {
+            return vendorsCollection.findOne({ _id: vendorId }).then((data) => {
+                if (data === 'undefined') 
+                    throw "Vendor not found !";
+                    let vendordata = data.reviews;
+                    return vendordata;
+            });
+        });
+    },
+    getReviewsFromReviewId(reviewId) {
+        if (!reviewId) 
+            return Promise.reject("You must provide an ReviewID");
+        return vendors().then((vendorsCollection) => {
+            return vendorsCollection.findOne({ $where: "this.reviews._id = '" + reviewId + "'" }).then((data) => {
+                console.log(data);
+                 if (!data)
+                   throw "Reviews not Found !";
+                let vendordata = data.reviews.filter(function (reviews) {
+                     return reviews._id == reviewId;
+                })[0];
+                 vendordata._id = data._id;
+                 vendordata.saloonName = data.saloonName;
+                 vendordata.address = data.address;
+                 vendordata.contactNumber = data.contactNumber;
+                 vendordata.state = data.state;
+                 vendordata.city = data.city;
+                 vendordata.zipCode = data.zipCode;
+                 vendordata.email = data.email;
+                 return vendordata;
+            });
+        });
+    },
+    addReviews(vendorId, userId, rating, review) {
+        return vendors().then((vendorsCollection) => {
+            reviewId = uuid()
+            let addReviews = {
+                _id: reviewId,
+                userId: userId,
+                rating: rating,
+                review:review
+            };
+            return vendorsCollection.updateOne({ _id: vendorId }, { $push: { "reviews": addReviews } }).then(function () {
+                return exportedMethods.getReviewsFromReviewId(reviewId).then((reviewdata) => {
+                    return reviewdata;
+                }, (err) => {
+                    return Promise.reject("Cannot add this review");
+                });
+            });
+        });
+    },
+   
+    removeReviews(reviewId) {
+        return vendors().then((vendorsCollection) => {
+            return vendorsCollection.updateOne(
+                { "reviews._id": reviewId },
+                { $unset: { "reviews.$._id": reviewId } }
+            ).then((deletionInfo) => {
+                if (deletionInfo.updatedCount === 0) {
+                    throw (`Could not get reviews with id of ${reviewId}`)
+                }
+            });
+        });
+    },
+
+    updateReviews(vendorId, reviewId, updateddata) {
+        return this.getReviewsFromReviewId(reviewId).then((currentReview) => {
+            if (!currentReview) throw "Reviews not found !";
+
+            let reviewInfo = currentReview;
+            if ('userId' in updateddata) {
+                reviewInfo.userId = updateddata.userId;
+            }
+            if ('rating' in updateddata) {
+                reviewInfo.rating = updateddata.rating;
+            }
+            if ('reviews' in updateddata) {
+                reviewInfo.reviews = updateddata.reviews;
+            }
+            delete reviewInfo['vendorId'];
+            delete reviewInfo['saloonName'];
+            delete reviewInfo['address'];
+            delete reviewInfo['contactNumber'];
+            delete reviewInfo['state'];
+            delete reviewInfo['city'];
+            delete reviewInfo['zipcode'];
+            delete reviewInfo['email'];
+            let updateReviewdata = {
+                $set: { "reviews.$": reviewInfo }
+            };
+            return vendors().then((vendorsCollection) => {
+                return vendorsCollection.updateOne({ "reviews._id": reviewId }, updateReviewdata).then(() => {
+                    return this.getReviewsFromReviewId(reviewId);
+                });
+            });
+        });
+    },
 }
 module.exports = exportedMethods;
 
@@ -114,11 +300,18 @@ exportedMethods.updateReviews("24a95bf7-5a6e-4f98-8b25-240aa2184e30", "9c74f2bb-
 });
 */
 
-
-/* 
-exportedMethods.addReviews("28f0ff0d-0302-4a4a-a31e-7c9ed20945ea", "72f74edd-499d-4056-bab4-5e092ba4d565", "5", "It is TOO good").then((data) => {
+/*exportedMethods.getReviewsFromReviewId("4c1d2b53-3efb-4b00-9b34-227984017827").then(() => {
+    console.log("Removed");
+}); 
+*/
+/*exportedMethods.getAllReviewsFromVendorId("6966c00c-ff7a-4d9d-b273-2b36cbeb9232").then((data) => {
     console.log(data);
-}); */
+}); 
+
+
+/*exportedMethods.addReviews("6966c00c-ff7a-4d9d-b273-2b36cbeb9232", "34dd13a8-e51f-4310-861f-bca2a3b53f2a", "9", "It is TOO good").then((data) => {
+    console.log(data);
+}); 
 
 
 /*exportedMethods.addVendor("SalonX", "3588 John F Kennedy Blvd", "201-993-8891", "NJ", "Jersey City", "07307", "rsutariy@stevens.edu", "ruchika123").then((data) => {
