@@ -5,6 +5,8 @@
  *******************************************/
 const mongoCollections = require("../config/mongoCollections");
 const vendors = mongoCollections.vendors;
+const services = mongoCollections.services;
+const hairCutters = mongoCollections.hairCutters;
 const uuid = require('uuid/v4');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -95,7 +97,7 @@ let exportedMethods = {
             });
         });
     },
-<<<<<<< HEAD
+
     getReviewsFromReviewId(reviewId) {
         if (!reviewId) 
             return Promise.reject("You must provide an ReviewID");
@@ -196,6 +198,30 @@ let exportedMethods = {
             });
         });
     },
+
+    getAllHairCuttersFromVendorId(id) {
+        if (id === undefined) 
+            return Promise.reject("You must provide an ID");
+        return hairCutters().then((hairCuttersCollection) => {
+            return hairCuttersCollection.findOne({ vendorId: id }).then((data) => {
+                if (data === 'undefined') 
+                    throw "HairCutter not found from VendorID!";
+                return data;
+            });
+        });
+    },
+
+    getAllServicesFromVendorId(id) {
+        if (id === undefined) 
+            return Promise.reject("You must provide an ID");
+        return services().then((servicesCollection) => {
+            return servicesCollection.findOne({ vendorId: id }).then((servicedata) => {
+                if (servicedata === 'undefined') 
+                    throw "Service not found from VendorID!";
+                    return servicedata;
+            });
+        });
+    },
     getReviewsFromReviewId(reviewId) {
         if (!reviewId) 
             return Promise.reject("You must provide an ReviewID");
@@ -283,13 +309,13 @@ let exportedMethods = {
             });
         });
     },
-=======
+
     getVendorsBySearch(searchText) {
         return vendors().then((vendorsCollection) => {
             return vendorsCollection.find({ $or: [{ "saloonName": { '$regex': searchText, '$options': 'i' } }, { "state": { '$regex': searchText, '$options': 'i' } }, { "city": { '$regex': searchText, '$options': 'i' } }, { "zipCode": searchText }] }).toArray();
         });
     }
->>>>>>> 0cf656d209a830761cbc8ddca4985e71c86990cb
+
 }
 module.exports = exportedMethods;
 
@@ -315,6 +341,15 @@ exportedMethods.updateReviews("24a95bf7-5a6e-4f98-8b25-240aa2184e30", "9c74f2bb-
     console.log("Removed");
 }); 
 */
+exportedMethods.getAllServicesFromVendorId("0b8bbd98-3981-47fa-bd2b-2b57f29054cb").then((data) => {
+    console.log(data);
+}); 
+
+/*exportedMethods.getAllHairCuttersFromVendorId("0b8bbd98-3981-47fa-bd2b-2b57f29054cb").then((data) => {
+    console.log(data);
+}); 
+
+
 /*exportedMethods.getAllReviewsFromVendorId("6966c00c-ff7a-4d9d-b273-2b36cbeb9232").then((data) => {
     console.log(data);
 }); 

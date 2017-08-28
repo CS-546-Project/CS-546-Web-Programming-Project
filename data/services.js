@@ -126,7 +126,7 @@ module.exports = exportedMethods;
     console.log(data);
 });
 */
-/*exportedMethods.getAllReviewsFromServiceId("58a325ed-e075-411b-8383-22c36391b5e1").then((data) => {
+exportedMethods.getAllReviewsFromServiceId("58a325ed-e075-411b-8383-22c36391b5e1").then((data) => {
     console.log(data);
 }); 
 
